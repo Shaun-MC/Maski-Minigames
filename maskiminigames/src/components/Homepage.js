@@ -3,6 +3,13 @@ import logo from '../logo.svg';
 import Button from './Button.js';
 import '../styles/Homepage.css';
 
+/**
+ * @file Homepage.js
+ * @description Landing page for MASKI Minigames. Redirects to games.
+ * 
+ * @author Ayleen Piteo-Tarpy
+ * @date December 2024
+ */
 const Homepage = () => {
   return (
     <header className="homepage">
