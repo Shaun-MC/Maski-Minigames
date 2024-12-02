@@ -12,6 +12,66 @@
   font-family: Arial, sans-serif;
 }
 
+.snake-button {
+  background-image: url('../assets/snake_button.png');
+}
+
+.endless-racing-button {
+  background-image: url('../assets/endless_racing_button.png');
+}
+
+.button {
+  display: inline-block;
+  width: 300px; /* Match the desired button size */
+  height: 205px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  text-decoration: none; /* Remove link underline */
+  color: transparent; /* Ensure no visible text, even if the span is there */
+  position: relative; /* Needed if absolutely positioning child elements */
+}
+
 .buttons {
   margin-top: 50px;
+  display: flex;
+  gap: 20vw;
+}
+
+@media (max-width: 775px) {
+  .buttons {
+    gap: 10vw;
+  }
+}
+
+@media (max-width: 650px) {
+  .buttons {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .homepage {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 310px) {
+  .button {
+    width: 95vw;
+    height: 61vw;
+  }
+}
+
+@media (max-height: 730px) {
+  .buttons {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+    margin-top: 20px; /* Ensure it stays below the top boundary */
+    position: sticky; /* Optional: Stick it to the top during scrolling */
+    top: 0;
+  }
 }
