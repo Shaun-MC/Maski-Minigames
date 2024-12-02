@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: url('assets/background_tile.png') repeat;
+  background: url('../../public/assets/background_tile.png') repeat;
   background-color: #09002e;
   background-size: auto;
   text-align: center;
