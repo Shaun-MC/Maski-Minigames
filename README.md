@@ -2,11 +2,10 @@
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+1.	Install Node.js and NPM.
+2.	Make sure a **node_modules** folder has been generated under **maskiminigames**. If there isn't, execute `npm install` in the **maskiminigames** directory.
+3.	Navigate to **maskiminigames** and execute `npm start`.
+4.	If the webpack is compiled successfully but doesn't open a live instance of the site in your brower, navigate to `http://localhost:3000/` to run the website and see changes as you write them.
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
