@@ -19,7 +19,7 @@ const Button = ({ link, altText, className }) => {
 Button.propTypes = {
     link: PropTypes.string.isRequired,            // Link to redirect
     altText: PropTypes.string,                    // Accessibility text
-    className: PropTypes.string.isRequired                   // CSS class name
+    className: PropTypes.string.isRequired        // CSS class name
 };
 
 export default Button;

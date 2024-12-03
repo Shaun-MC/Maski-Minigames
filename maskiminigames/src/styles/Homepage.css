@@ -66,8 +66,8 @@
   .App-logo {
     height: 40vmin;
     pointer-events: none;
-    margin-top: 20px; /* Ensure it stays below the top boundary */
-    position: sticky; /* Optional: Stick it to the top during scrolling */
+    margin-top: 20px;
+    position: sticky;
     top: 0;
   }
 }
