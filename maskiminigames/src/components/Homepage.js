@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../logo.svg';
-import Button from './Button.js';
+import snakeButtonImage from '../assets/snake_button.png';
+import endlessRacingButtonImage from '../assets/endless_racing_button.png';
 import '../styles/Homepage.css';
 
 /**
@@ -11,21 +12,30 @@ import '../styles/Homepage.css';
  * @date December 2024
  */
 const Homepage = () => {
+
+  const redirect = (link) => {
+    setTimeout(() => {
+      window.location.href = link;
+    }, 100); // 100ms delay 
+  };
+
   return (
     <header className="homepage">
       <img src={logo} className="App-logo" alt="logo" />
       <div className="buttons">
-        <Button 
-          link="https://dev.azure.com/software-engineering-studio/studio-course/_workitems/edit/12014/" // TODO: Insert link to snake game page
-          altText="Play Snake"
+        <button
           className="button snake-button"
-        />
+          onClick={() => redirect("https://dev.azure.com/software-engineering-studio/studio-course/_workitems/edit/12014/")}
+        >
+          <img className="button-image" src={snakeButtonImage}></img>
+        </button>
 
-        <Button 
-          link="https://dev.azure.com/software-engineering-studio/studio-course/_workitems/edit/12020/" // TODO: Insert link to endless racing game page
-          altText="Play Endless Racing"
+        <button
           className="button endless-racing-button"
-        />
+          onClick={() => redirect("https://dev.azure.com/software-engineering-studio/studio-course/_workitems/edit/12020/")}
+        >
+          <img className="button-image" src={endlessRacingButtonImage}></img>
+        </button>
       </div>
     </header>
   );

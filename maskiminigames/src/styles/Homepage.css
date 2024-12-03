@@ -14,19 +14,43 @@
   display: inline-block;
   width: 300px;
   height: 205px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: none;
+  border: none;
   cursor: pointer;
   position: relative;
+  z-index: 1;
 }
 
-.snake-button {
-  background-image: url('../assets/snake_button.png');
+.button::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 97%;
+  height: 95%;
+  border: none;
+  border-radius: 15px;;
+  background-color: #20FFF2;
+  z-index: -1;
 }
 
-.endless-racing-button {
-  background-image: url('../assets/endless_racing_button.png');
+.button-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.05s;
+}
+
+.button:active .button-image {
+  transform: translate(5px, 5px);
+}
+
+/* Active button state - moves button down */
+.button:active {
+  .button-image {
+    top: 5px;
+    left: 5px;
+  }
 }
 
 .buttons {
