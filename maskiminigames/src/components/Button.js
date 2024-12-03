@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * @file Button.js
+ * @description Serves as a button that redirects to any link
+ * 
+ * @author Ayleen Piteo-Tarpy
+ * @date December 2024
+ */
 const Button = ({ link, altText, className }) => {
   return (
       <a
