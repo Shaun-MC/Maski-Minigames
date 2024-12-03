@@ -45,14 +45,6 @@
   transform: translate(5px, 5px);
 }
 
-/* Active button state - moves button down */
-.button:active {
-  .button-image {
-    top: 5px;
-    left: 5px;
-  }
-}
-
 .buttons {
   margin-top: 50px;
   display: flex;
