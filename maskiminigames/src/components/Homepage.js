@@ -24,17 +24,27 @@ const Homepage = () => {
       <img src={logo} className="App-logo" alt="logo" />
       <div className="buttons">
         <button
-          className="button snake-button"
-          onClick={() => redirect("https://dev.azure.com/software-engineering-studio/studio-course/_workitems/edit/12014/")}
+          className="button"
+          onClick={() => redirect("")}
         >
-          <img className="button-image" src={snakeButtonImage}></img>
+          <img
+            className="button-image"
+            src={snakeButtonImage}
+            alt="Play Snake"
+          >
+          </img>
         </button>
 
         <button
-          className="button endless-racing-button"
-          onClick={() => redirect("https://dev.azure.com/software-engineering-studio/studio-course/_workitems/edit/12020/")}
+          className="button"
+          onClick={() => redirect("")}
         >
-          <img className="button-image" src={endlessRacingButtonImage}></img>
+          <img 
+            className="button-image"
+            src={endlessRacingButtonImage}
+            alt="Play Endless Racing"
+          >
+          </img>
         </button>
       </div>
     </header>

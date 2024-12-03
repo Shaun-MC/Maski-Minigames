@@ -26,8 +26,8 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 97%;
-  height: 95%;
+  width: 97.5%;
+  height: 96%;
   border: none;
   border-radius: 15px;;
   background-color: #20FFF2;
@@ -42,7 +42,7 @@
 }
 
 .button:active .button-image {
-  transform: translate(5px, 5px);
+  transform: translate(6px, 6px);
 }
 
 .buttons {
