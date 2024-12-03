@@ -2,10 +2,11 @@ import React from 'react';
 import logo from '../logo.svg';
 import snakeButtonImage from '../assets/snake_button.png';
 import endlessRacingButtonImage from '../assets/endless_racing_button.png';
+import Button from './Button';
 import '../styles/Homepage.css';
 
 /**
- * @file Homepage.js
+ * @component Homepage
  * @description Landing page for MASKI Minigames. Redirects to games.
  * 
  * @author Ayleen Piteo-Tarpy
@@ -13,39 +14,20 @@ import '../styles/Homepage.css';
  */
 const Homepage = () => {
 
-  const redirect = (link) => {
-    setTimeout(() => {
-      window.location.href = link;
-    }, 100); // 100ms delay 
-  };
-
   return (
     <header className="homepage">
       <img src={logo} className="App-logo" alt="logo" />
       <div className="buttons">
-        <button
-          className="button"
-          onClick={() => redirect("")}
-        >
-          <img
-            className="button-image"
-            src={snakeButtonImage}
-            alt="Play Snake"
-          >
-          </img>
-        </button>
-
-        <button
-          className="button"
-          onClick={() => redirect("")}
-        >
-          <img 
-            className="button-image"
-            src={endlessRacingButtonImage}
-            alt="Play Endless Racing"
-          >
-          </img>
-        </button>
+        <Button
+          link=""
+          imageSrc={snakeButtonImage} 
+          altText="Play Snake"
+        />
+        <Button
+          link=""
+          imageSrc={endlessRacingButtonImage} 
+          altText="Play Endless Racing"
+        />
       </div>
     </header>
   );
