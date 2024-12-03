@@ -10,25 +10,6 @@
   background-size: auto;
 }
 
-.button {
-  display: inline-block;
-  width: 300px;
-  height: 205px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  position: relative;
-}
-
-.snake-button {
-  background-image: url('../assets/snake_button.png');
-}
-
-.endless-racing-button {
-  background-image: url('../assets/endless_racing_button.png');
-}
-
 .buttons {
   margin-top: 50px;
   display: flex;
@@ -66,8 +47,8 @@
   .App-logo {
     height: 40vmin;
     pointer-events: none;
-    margin-top: 20px; /* Ensure it stays below the top boundary */
-    position: sticky; /* Optional: Stick it to the top during scrolling */
+    margin-top: 20px;
+    position: sticky;
     top: 0;
   }
 }

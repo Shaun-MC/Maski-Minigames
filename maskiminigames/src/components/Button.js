@@ -1,25 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/Button.css';
 
-const Button = ({ link, altText, className }) => {
+/**
+ * @component Button
+ * @description A button component with a press animation that redirects
+ * to a given link
+ * 
+ * @author Ayleen Piteo-Tarpy
+ * @date December 2024
+ */
+const Button = ({ link, imageSrc, altText }) => {
+  const redirect = () => {
+    setTimeout(() => {
+      window.location.href = link;
+    }, 100); // 100ms delay so users can see button press animation
+  };
+
   return (
-      <a
-        className={className}
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={altText}
-      >
-        {}
-      </a>
-    );
+    <button className="button" onClick={() => redirect()}>
+      <img className="button-image" src={imageSrc} alt={altText} />
+    </button>
+  );
 };
 
-// Define prop types
 Button.propTypes = {
-    link: PropTypes.string.isRequired,            // Link to redirect
-    altText: PropTypes.string,                    // Accessibility text
-    className: PropTypes.string.isRequired                   // CSS class name
+  link: PropTypes.string.isRequired,
+  imageSrc: PropTypes.string.isRequired,
+  altText: PropTypes.string.isRequired,
 };
 
 export default Button;
