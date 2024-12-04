@@ -7,14 +7,12 @@ import SnakeGamePage from './components/snake-game/SnakeGamePage';
 
 function App() {
   return (
-    <> 
+    <div className="App">
     <Routes> 
-
       <Route 
         path='/'
         element={<Homepage/>}
       /> 
-
       <Route 
         path='/snake-game'
         element={<SnakeGamePage/>}
@@ -24,14 +22,8 @@ function App() {
         path='/endless-racer'
         element={<EndlessRacingGamePage/>}
       /> 
-      
-
-     {/* Unsure if I need to include this div*/}
-        {/* <div className="App"> */}
-        {/* </div> */}
     </Routes>
-    </>
-  
+    </div>
   );
 }
 
