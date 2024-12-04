@@ -22,19 +22,10 @@ class PlayerCar extends Component {
         this.width = IMAGE_WIDTH;
         this.height = IMAGE_HEIGHT;
 
-        console.log("Dimensions: " + this.width + " | " + this.height);
-
         this.state = {
             x: MAP_WIDTH / 2 + IMAGE_WIDTH / 4,
-            y: 0
+            y: -MAP_HEIGHT / 3
         }
-
-        this.isKeyPressed = {
-            ArrowLeft: false,
-            ArrowRight: false,
-            ArrowUp: false,
-            ArrowDown: false,
-        };
 
         // Get the edges of the track
         this.trackEdges = {
@@ -44,8 +35,6 @@ class PlayerCar extends Component {
 
         this.verticalSpeed = 1;
         this.horizontalSpeed = 5;
-        
-        this.isMoving = false;
     };
 
     /*
@@ -84,60 +73,6 @@ class PlayerCar extends Component {
     // Prints player's position
     printPosition = () => {
         console.log(this.state.x + " / " + this.state.y);
-    }
-
-    // Currently unused
-    startMoving = () => {
-        this.setState({ isMoving: true });
-    };
-
-    stopMoving = () => {
-        this.setState({ isMoving: false });
-    };
-
-    // Setup keypress event listeners to handle movement
-    componentDidMount() {
-        window.addEventListener('keydown', this.handleKeyDown);
-        window.addEventListener('keyup', this.handleKeyUp);
-
-        this.animationFrameId = requestAnimationFrame(this.update);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('keydown', this.handleKeyDown);
-        window.removeEventListener('keyup', this.handleKeyUp);
-    }
-
-    // Mark key as being pressed down
-    handleKeyDown = (event) => {
-        // handleKeyDown handles holding key presses in an odd manner,
-        // so I instead created a bool to check against, rather than the key
-        // itself.
-        console.log(`Pressed key ${event.key}`)
-        this.isKeyPressed[event.key] = true;
-        this.printPosition();
-    };
-
-    handleKeyUp = (event) => {
-        console.log(`Stopped pressing key ${event.key}`)
-        this.isKeyPressed[event.key] = false;
-    };
-
-    update = () => {
-        if (this.isKeyPressed['ArrowLeft']) {
-            this.moveLeft();
-        }
-        if (this.isKeyPressed['ArrowRight']) {
-            this.moveRight();
-        }
-        if (this.isKeyPressed['ArrowUp']) {
-            this.accelerate();
-        }
-        if (this.isKeyPressed['ArrowDown']) {
-            this.deaccelerate();
-        }
-
-        this.animationFrameId = requestAnimationFrame(this.update);
     }
 
     // Render out the player
