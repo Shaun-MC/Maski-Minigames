@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import playerCarImage from './assets/RedCar.png';
-import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
+import { MAP_WIDTH, MAP_HEIGHT, IMAGE_WIDTH } from './Constants'
 import CarUtils from './CarUtils'
-
-const MIN_SPEED = 0.1;
-const MAX_SPEED = 15;
-const IMAGE_WIDTH = 64;
-const IMAGE_HEIGHT = 112;
 
 /**
  * @class PlayerCar
@@ -27,6 +22,8 @@ class PlayerCar extends Component {
 
         this.verticalSpeed = 1;
         this.horizontalSpeed = 5;
+        this.minSpeed = 0.1;
+        this.maxSpeed = 15;
     };
 
     /*
@@ -50,11 +47,11 @@ class PlayerCar extends Component {
     Accelerate or deaccelerate the speed of the player
     */
     accelerate = () => {
-        CarUtils.accelerate(this, MAX_SPEED);
+        CarUtils.accelerate(this, this.maxSpeed);
     }
 
     deaccelerate = () => {
-        CarUtils.deaccelerate(this, MIN_SPEED);
+        CarUtils.deaccelerate(this, this.minSpeed);
     }
 
     // Render out the player
