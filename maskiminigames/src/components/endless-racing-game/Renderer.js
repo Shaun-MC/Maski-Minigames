@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PlayerCar from './Player';
+import PlayerCar from './PlayerCar';
 import RaceTrack from './RaceTrack';
 import Racer from './Racer';
 import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
