@@ -19,13 +19,13 @@ const Homepage = () => {
       <img src={logo} className="App-logo" alt="logo" />
       <div className="buttons">
         <Button
-          link=""
-          imageSrc={snakeButtonImage} 
+          link="/snake-game"
+          imageSrc={snakeButtonImage}
           altText="Play Snake"
         />
         <Button
-          link=""
-          imageSrc={endlessRacingButtonImage} 
+          link="/endless-racer"
+          imageSrc={endlessRacingButtonImage}
           altText="Play Endless Racing"
         />
       </div>
