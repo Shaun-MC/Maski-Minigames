@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * @class RaceTrack
  * @description The track that the player travels on during the game.
