@@ -2,7 +2,6 @@ import React from 'react';
 import logo from '../logo.svg';
 import snakeButtonImage from '../assets/snake_button.png';
 import endlessRacingButtonImage from '../assets/endless_racing_button.png';
-import endlessRacingPage from './endless-racing-game/EndlessRacingPage';
 import Button from './Button';
 import '../styles/Homepage.css';
 
