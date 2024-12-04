@@ -54,11 +54,13 @@ class Racer extends Component {
     };
 
     setRandomSpeeds = () => {
-        this.verticalSpeed = this.randomNumberInRange(2, 12);
+        this.verticalSpeed = this.randomNumberInRange(1, 3);
         this.horizontalSpeed = this.randomNumberInRange(-3, 3);
     }
 
-    randomizePositionAndCarColor = () => {
+    // Adds random color and modifies speed somewhat
+    // Additionally modifies the horizontal position of the car
+    randomizeCarState = () => {
         this.verticalSpeed = this.verticalSpeed + this.randomNumberInRange(-2, 2);
         this.horizontalSpeed = this.horizontalSpeed + this.randomNumberInRange(-1, 1);
         this.imageIndex = this.randomNumberInRange(0, RACE_CAR_IMAGES.length - 1);
@@ -69,6 +71,7 @@ class Racer extends Component {
         }
     }
 
+    // Generates a random number between a given min and max
     randomNumberInRange = (min, max) => {
         return Math.floor(Math.random()
             * (max - min + 1)) + min;
@@ -90,6 +93,7 @@ class Racer extends Component {
     }
 
     update = () => {
+        // Apply speed update
         this.setState({
             x: this.state.x - this.horizontalSpeed,
             y: this.state.y - this.verticalSpeed,
@@ -100,14 +104,14 @@ class Racer extends Component {
             this.setState({
                 y: MAP_HEIGHT,
             });
-            this.randomizePositionAndCarColor();
+            this.randomizeCarState();
         }
         else if (this.state.y > MAP_HEIGHT)
         {
             this.setState({
                 y: -MAP_HEIGHT + IMAGE_HEIGHT,
             });
-            this.randomizePositionAndCarColor();
+            this.randomizeCarState();
         }
 
         // Check if edge was hit
@@ -123,7 +127,7 @@ class Racer extends Component {
         this.animationFrameId = requestAnimationFrame(this.update);
     }
 
-    // Render out the player
+    // Render out the racer
     render() {
         const { x, y } = this.state;
         return (
