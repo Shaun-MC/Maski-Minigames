@@ -36,6 +36,7 @@ class PlayerCar extends Component {
             ArrowDown: false,
         };
 
+        // Get the edges of the track
         this.trackEdges = {
             leftEdge : this.width,
             rightEdge : MAP_WIDTH
@@ -94,11 +95,12 @@ class PlayerCar extends Component {
         this.setState({ isMoving: false });
     };
 
+    // Setup keypress event listeners to handle movement
     componentDidMount() {
         window.addEventListener('keydown', this.handleKeyDown);
         window.addEventListener('keyup', this.handleKeyUp);
 
-        this.animationFrameId = requestAnimationFrame(this.update); // Start the animation loop
+        this.animationFrameId = requestAnimationFrame(this.update);
     }
 
     componentWillUnmount() {
@@ -106,12 +108,11 @@ class PlayerCar extends Component {
         window.removeEventListener('keyup', this.handleKeyUp);
     }
 
+    // Mark key as being pressed down
     handleKeyDown = (event) => {
-        // Mark key as being pressed down
         // handleKeyDown handles holding key presses in an odd manner,
         // so I instead created a bool to check against, rather than the key
         // itself.
-
         console.log(`Pressed key ${event.key}`)
         this.isKeyPressed[event.key] = true;
         this.printPosition();
@@ -139,6 +140,7 @@ class PlayerCar extends Component {
         this.animationFrameId = requestAnimationFrame(this.update);
     }
 
+    // Render out the player
     render() {
         const { x, y } = this.state;
         return (

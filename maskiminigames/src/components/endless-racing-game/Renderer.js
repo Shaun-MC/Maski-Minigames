@@ -3,12 +3,13 @@ import PlayerCar from './Player';
 import RaceTrack from './RaceTrack';
 import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
 
+// Used to center all of the components that are a part of the game
 const containerStyle = {
     display: 'flex',
-    justifyContent: 'center', // Horizontally center
-    alignItems: 'center', // Vertically center
-    height: '100vh', // Full viewport height
-    margin: 0, // Remove default margin
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh', 
+    margin: 0, 
 };
 
 /**
@@ -26,6 +27,7 @@ class Renderer extends Component {
         this.playerRef = React.createRef();
     }
 
+    // Renders out the game
     render() {
         return (
             <div className="game-container"
