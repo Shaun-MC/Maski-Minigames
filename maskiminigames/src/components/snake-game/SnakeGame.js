@@ -9,11 +9,13 @@ import {
   DIRECTIONS,
   ALLOWED_KEYCODES
 } from "./constants";
+import "../snake-game/SnakeGame.css"
 
 const SnakeGame = () => {
   const canvasRef = useRef();
   const [snake, setSnake] = useState(SNAKE_START);
   const [apple, setApple] = useState(APPLE_START);
+  const [score, setScore] = useState(0);
 
   // Starting snake moving upward.
   const [direction, setDirection] = useState([0,-1]);
@@ -34,6 +36,7 @@ const SnakeGame = () => {
 
 
   const startGame = () => { 
+    setScore(0);
     setSnake(SNAKE_START);
     setApple(APPLE_START);
     setDirection([0, -1]);
@@ -69,11 +72,15 @@ const SnakeGame = () => {
   }
 
   const createApple = () => { 
-
+    // create apple with random coords 
+    return [0, 1].map((i) =>
+      Math.floor(Math.random() * (CANVAS_SIZE[i] / SCALE))
+    );
   }
 
   const checkWallCollision = (piece, currentSnake = snake) => { 
     // check for wall collision
+
     return (
       piece[0] * SCALE >= CANVAS_SIZE[0] ||
       piece[0] < 0 ||
@@ -89,8 +96,19 @@ const SnakeGame = () => {
     return currentSnake.some(segment => piece[0] === segment[0] && piece[1] === segment[1]);
   }
 
-  const checkAppleCollision = () => {
+  const checkAppleCollision = (newSnake = snake) => {
+    if (newSnake[0][0] === apple[0] && newSnake[0][1] === apple[1]) { 
+      let newApple = createApple();
+      setScore(score + 1);
 
+      // Create an apple (eventually) that doesn't collide with our snake
+      while (checkWallCollision(newApple, newSnake) || checkSelfCollision(newApple, newSnake)) { 
+        newApple = createApple();
+      }
+      setApple(newApple);
+      return true;
+    }
+    return false; 
   }
 
   const gameLoop = () => {
@@ -118,8 +136,10 @@ const SnakeGame = () => {
       endGame();
     }
 
-    snakeCopy.pop();
-    
+    if (!checkAppleCollision(snakeCopy)) { 
+      snakeCopy.pop();
+    }
+
     setSnake(snakeCopy);
 
   }
@@ -162,7 +182,12 @@ const SnakeGame = () => {
 
 
   return (
-    <div role="button" tabIndex="0" onKeyDown={(e) => moveSnake(e) }>
+    <div id="SnakeGameContainer" role="button" tabIndex="0" onKeyDown={(e) => moveSnake(e) } style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem' }}>
+      <div style={{
+        fontFamily:"monospace",
+        fontSize: "30px",
+
+      }}> {"Current Score: " + score}  </div>
       <canvas
         style={{border: "1px solid black"}}
         ref={canvasRef}
@@ -173,7 +198,14 @@ const SnakeGame = () => {
       {/* make separate game over component. */}
 
       {gameOver && <div> {"GAME OVER!!!"} </div>}
-      <button onClick={startGame}> START GAME </button>
+      <button 
+      style={{
+        all: 'unset',
+        border: "1px solid black",
+        marginTop: '20px'
+        
+      }}
+      onClick={startGame}> START GAME </button>
     </div>
   )
 }

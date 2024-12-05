@@ -5,7 +5,7 @@ import SnakeGame from './SnakeGame.js';
 
 const SnakeGamePage = () => {
   return (
-    <div>SnakeGamePage
+    <div>
       <Button
         link="/"
         imageSrc={homepageButtonImage}
