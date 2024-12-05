@@ -17,7 +17,7 @@ export const CarUtils = {
         <div
             className="racer"
             style={{
-                position: "relative",
+                position: "absolute",
                 left: `${x}px`,
                 top: `${y}px`,
             }}
@@ -33,15 +33,18 @@ export const CarUtils = {
     Sets up common variables of a race car
     */
     initialize(instance) {
-        // Set up variables
-        instance.width = IMAGE_WIDTH;
-        instance.height = IMAGE_HEIGHT;
-
-        // Get the edges of the track
-        instance.trackEdges = {
-            leftEdge: instance.width,
-            rightEdge: MAP_WIDTH
-        };
+      // Set up variables
+      instance.width = IMAGE_WIDTH;
+      instance.height = IMAGE_HEIGHT;
+  
+      // Get the edges of the centered track
+      const leftEdge = 0;
+      const rightEdge = MAP_WIDTH;
+  
+      instance.trackEdges = {
+          leftEdge: leftEdge, // Adjust for car center
+          rightEdge: rightEdge - instance.width, // Adjust for car center
+      };
     },
 
     /*

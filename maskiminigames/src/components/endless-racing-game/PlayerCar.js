@@ -16,7 +16,7 @@ class PlayerCar extends Component {
         CarUtils.initialize(this);
 
         this.state = {
-            x: MAP_WIDTH / 2 + IMAGE_WIDTH / 4,
+            x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
             y: MAP_HEIGHT / 3
         }
 
@@ -56,9 +56,19 @@ class PlayerCar extends Component {
 
     // Render out the player
     render() {
-        const { x, y } = this.state;
-        return (CarUtils.renderCar(x, y, playerCarImage));
-    }
+      const { x, y } = this.state;
+      return (
+          <div
+              style={{
+                  position: "absolute", // Position relative to the container
+                  left: `${x}px`, // x position relative to the container
+                  top: `${y}px`,  // y position relative to the container
+              }}
+          >
+              <img src={playerCarImage} alt="Player Car" />
+          </div>
+      );
+  }  
 }
 
 export default PlayerCar;
