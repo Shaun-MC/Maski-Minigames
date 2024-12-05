@@ -54,21 +54,11 @@ class PlayerCar extends Component {
         CarUtils.deaccelerate(this, this.minSpeed);
     }
 
-    // Render out the player
+    // Render out the racer
     render() {
-      const { x, y } = this.state;
-      return (
-          <div
-              style={{
-                  position: "absolute", // Position relative to the container
-                  left: `${x}px`, // x position relative to the container
-                  top: `${y}px`,  // y position relative to the container
-              }}
-          >
-              <img src={playerCarImage} alt="Player Car" />
-          </div>
-      );
-  }  
+        const { x, y } = this.state;
+        return (CarUtils.renderCar(x, y, playerCarImage, "Player"));
+    }
 }
 
 export default PlayerCar;

@@ -13,7 +13,7 @@ export const CarUtils = {
     /*
     Render out a car, given a position and the image being used
     */
-    renderCar: (x, y, raceCarImage) => (
+    renderCar: (x, y, raceCarImage, alt) => (
         <div
             className="racer"
             style={{
@@ -24,7 +24,7 @@ export const CarUtils = {
         >
             <img
                 src={raceCarImage}
-                alt="Racer"
+                alt={alt}
             />
         </div>
     ),

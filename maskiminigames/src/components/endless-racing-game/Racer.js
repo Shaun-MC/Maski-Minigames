@@ -112,19 +112,9 @@ class Racer extends Component {
 
     // Render out the racer
     render() {
-      const { x, y } = this.state;
-      return (
-          <div
-              style={{
-                  position: "absolute", // Position relative to the container
-                  left: `${x}px`, // x position relative to the container
-                  top: `${y}px`,  // y position relative to the container
-              }}
-          >
-              <img src={this.raceCarImage} alt="Player Car" />
-          </div>
-      );
-  }
+        const { x, y } = this.state;
+        return (CarUtils.renderCar(x, y, this.raceCarImage, "Racer"));
+    }
 }
 
 export default Racer;
