@@ -38,8 +38,8 @@ class Racer extends Component {
 
         // Begin constant updates
         this.animationFrameId = requestAnimationFrame(this.update);
-        this.minSpeed = -30;
-        this.maxSpeed = 30;
+        this.minSpeed = -50;
+        this.maxSpeed = 50;
     };
 
     setRandomSpeeds = () => {
@@ -50,7 +50,8 @@ class Racer extends Component {
     // Adds random color and modifies speed somewhat
     // Additionally modifies the horizontal position of the car
     randomizeCarState = () => {
-        this.verticalSpeed = this.verticalSpeed + this.randomNumberInRange(-2, 2);
+        this.verticalSpeed = this.verticalSpeed + this.randomNumberInRange(-0.5, 0.5);
+        this.horizontalSpeed = this.horizontalSpeed + this.randomNumberInRange(-0.05, 0.05);
         this.imageIndex = this.randomNumberInRange(0, RACE_CAR_IMAGES.length - 1);
         this.raceCarImage = RACE_CAR_IMAGES[this.imageIndex];
     }
