@@ -6,11 +6,12 @@ import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
 
 // Used to center all of the components that are a part of the game
 const containerStyle = {
+    overflow: 'hidden',
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
-    margin: 0,
+    height: '{$MAP_HEIGHT}',
+    width: '{$MAP_WIDTH',
+    margin: '0',
 };
 
 /**
