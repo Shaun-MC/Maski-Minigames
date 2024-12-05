@@ -2,17 +2,17 @@ import React from 'react';
 import Button from '../Button.js';
 import homepageButtonImage from '../../assets/homepage_button.png';
 import endlessRacingButtonImage from '../../assets/endless_racing_button.png';
-import buttonStyles from '../../styles/Buttons.module.css';
+import styles from '../../styles/PageStyles.module.css';
 import Renderer from './Renderer'
 
 const EndlessRacingGamePage = () => {
   document.body.style.overflow = "auto"
 
   return (
-    <div>
+    <div className={styles.page}>
       <div><Renderer /></div>
 
-      <div className = {buttonStyles.buttons}>
+      <div className = {styles.buttons}>
         <Button
           link="/"
           imageSrc={homepageButtonImage}
