@@ -72,10 +72,21 @@ const SnakeGame = () => {
 
   }
 
-  // might want to split up checking wall 
-  // collision and self-collision
-  const checkCollision = () => { 
+  const checkWallCollision = (piece, currentSnake = snake) => { 
+    // check for wall collision
+    return (
+      piece[0] * SCALE >= CANVAS_SIZE[0] ||
+      piece[0] < 0 ||
+      piece[1] * SCALE >= CANVAS_SIZE[1] ||
+      piece[1] < 0
+    );
+  }
 
+  // Check if snake has collided with itself
+  const checkSelfCollision = (piece, currentSnake = snake) => { 
+    // check if head of the snake has
+    // collided with some part of its body
+    return currentSnake.some(segment => piece[0] === segment[0] && piece[1] === segment[1]);
   }
 
   const checkAppleCollision = () => {
@@ -96,6 +107,17 @@ const SnakeGame = () => {
     // The following two lines are what create
     // the snake "crawling" look
     snakeCopy.unshift(newSnakeHead);
+
+    // Check for wall collision
+    if (checkWallCollision(newSnakeHead)) { 
+      endGame();
+    }
+
+    // Check for self-collision
+    if (checkSelfCollision(newSnakeHead)) { 
+      endGame();
+    }
+
     snakeCopy.pop();
     
     setSnake(snakeCopy);
