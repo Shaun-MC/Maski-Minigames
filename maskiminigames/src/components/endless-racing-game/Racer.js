@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import blackCarImage from '../../assets/endless-racing-game/BlackCar.png';
 import blueCarImage from '../../assets/endless-racing-game/BlueCar.png';
 import greenCarImage from '../../assets/endless-racing-game/GreenCar.png';
 import pinkCarImage from '../../assets/endless-racing-game/PinkCar.png';
-import { MAP_WIDTH, MAP_HEIGHT, IMAGE_HEIGHT } from './Constants'
+import { MAP_HEIGHT, IMAGE_HEIGHT } from './Constants'
 import CarUtils from './CarUtils'
 
 const RACE_CAR_IMAGES = [
