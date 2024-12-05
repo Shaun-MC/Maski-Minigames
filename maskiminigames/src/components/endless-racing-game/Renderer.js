@@ -44,7 +44,6 @@ class Renderer extends Component {
     };
 
     accelerate = () => {
-        console.log("accelerating!");
         this.racerRefs.forEach((racerRef) => racerRef.current.deaccelerate());
         this.playerRef.current.accelerate();
     };
