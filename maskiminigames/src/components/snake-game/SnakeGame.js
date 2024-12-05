@@ -25,18 +25,10 @@ const SnakeGame = () => {
 
   const [gameOver, setGameOver] = useState(false);
 
-  const [isStartButtonVisible, SetIsStartButtonVisible] = useState(true);
-
-  const handleStartButtonClick = () => {
-    SetIsStartButtonVisible(false);
-  };
-
   useEffect(() => {
     window.addEventListener("keydown", moveSnake);
-    // window.addEventListener('keyup', handleKeyUp);
     return () => {
       window.removeEventListener("keydown", moveSnake);
-      // window.removeEventListener('keyup', handleKeyUp);
     };
   }, []);
 
