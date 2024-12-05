@@ -220,7 +220,7 @@ const SnakeGame = () => {
         height={`${CANVAS_SIZE[1]}px`}
       />
 
-      {gameOver && <GameOver startGame={startGame} />}
+      {gameOver && <GameOver score={score} startGame={startGame} />}
 
       <StartGameButton startGame={startGame} />
     </div>

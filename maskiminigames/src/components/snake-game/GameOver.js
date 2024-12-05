@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-const GameOver = ({ startGame }) => {
+const GameOver = ({ score, startGame }) => {
   return (
     <>
       <div
@@ -25,7 +25,10 @@ const GameOver = ({ startGame }) => {
             color: "red",
           }}
         >
-          {"GAME OVER!!!"}{" "}
+          {"GAME OVER!!!" }
+          <div style={{
+            color:"black"
+          }}> {"FINAL SCORE: " + score}</div>
         </h1>
         <div
           style={{
