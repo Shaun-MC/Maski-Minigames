@@ -220,8 +220,6 @@ const SnakeGame = () => {
         height={`${CANVAS_SIZE[1]}px`}
       />
 
-      {/* make separate game over component. */}
-
       {gameOver && <GameOver startGame={startGame} />}
 
       <StartGameButton startGame={startGame} />
