@@ -3,8 +3,7 @@ import logo from '../logo.svg';
 import snakeButtonImage from '../assets/snake_button.png';
 import endlessRacingButtonImage from '../assets/endless_racing_button.png';
 import Button from './Button';
-import buttonStyles from '../styles/Buttons.module.css';
-import '../styles/Homepage.css';
+import styles from '../styles/PageStyles.module.css';
 
 /**
  * @component Homepage
@@ -16,9 +15,9 @@ import '../styles/Homepage.css';
 const Homepage = () => {
 
   return (
-    <header className="homepage">
-      <img src={logo} className="App-logo" alt="logo" />
-      <div className={buttonStyles.buttons}>
+    <header className={styles.page}>
+      <img src={logo} className={styles.logo} alt="logo" />
+      <div className={styles.buttons}>
         <Button
           link="/snake-game"
           imageSrc={snakeButtonImage}

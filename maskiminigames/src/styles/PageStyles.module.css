@@ -1,5 +1,5 @@
 
-.homepage {
+.page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +10,46 @@
   background-size: auto;
 }
 
+.logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.buttons {
+  margin-top: 50px;
+  display: flex;
+  gap: 20vw;
+}
+
+@media (max-width: 775px) {
+  .buttons {
+    gap: 10vw;
+  }
+}
+
 @media (max-width: 680px) {
-  .homepage {
+  .buttons {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .page {
     padding-top: 20px;
   }
 }
 
+@media (max-width: 310px) {
+  .button {
+    width: 95vw;
+    height: 64vw;
+  }
+}
+
 @media (max-height: 730px) {
-  .App-logo {
+  .buttons {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .logo {
     height: 40vmin;
     pointer-events: none;
     margin-top: 20px;
