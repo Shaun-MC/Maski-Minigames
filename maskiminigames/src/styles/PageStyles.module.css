@@ -69,6 +69,7 @@
   background-color: #20FFF2; /* Background color for the frame */
   box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
   position: relative; /* Keeps the frame positioned tightly around Renderer */
+  margin: 30px;
 }
 
 .frame::before {
