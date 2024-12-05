@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import PlayerCar from './PlayerCar';
 import RaceTrack from './RaceTrack';
 import Racer from './Racer';
