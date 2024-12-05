@@ -7,6 +7,7 @@ import {
   SCALE,
   SPEED,
   DIRECTIONS,
+  ALLOWED_KEYCODES
 } from "./constants";
 
 const SnakeGame = () => {
@@ -21,16 +22,50 @@ const SnakeGame = () => {
 
   const [gameOver, setGameOver] = useState(false);
 
-  const startGame = () => { 
 
+  useEffect(() => {
+        window.addEventListener('keydown', moveSnake);
+        // window.addEventListener('keyup', handleKeyUp);
+        return () => {
+            window.removeEventListener('keydown', moveSnake);
+            // window.removeEventListener('keyup', handleKeyUp);
+        };
+    }, []);
+
+
+  const startGame = () => { 
+    setSnake(SNAKE_START);
+    setApple(APPLE_START);
+    setDirection([0, -1]);
+    setSpeed(SPEED);
+    setGameOver(false);
   }
 
   const endGame = () => { 
-
+    setSpeed(null);
+    setGameOver(true);
   }
 
-  const moveSnake = () => { 
+  // could put moveSnake in own class.
+  const moveSnake = (event) => { 
+    const { keyCode } = event;
 
+    if (validateInput(keyCode)) { 
+      event.preventDefault();
+    }
+
+    if (validateInput(keyCode)) { 
+      console.log("Valid input");
+      setDirection(DIRECTIONS[keyCode]);
+    } 
+    return;
+  }
+
+  const validateInput = (keyCode) => { 
+    if (ALLOWED_KEYCODES.has(keyCode)) { 
+      return true;
+    } 
+    return false; 
   }
 
   const createApple = () => { 
@@ -48,6 +83,22 @@ const SnakeGame = () => {
   }
 
   const gameLoop = () => {
+    /* 
+    Making deep copy of existing snake
+    as mutating state directly is not 
+    good practice in React.
+    */
+    const snakeCopy = snake.map(segment => [...segment]);
+    
+    // getting x and y coordinate of snake head
+    const newSnakeHead = [snakeCopy[0][0] + direction[0], snakeCopy[0][1] + direction[1]];
+
+    // The following two lines are what create
+    // the snake "crawling" look
+    snakeCopy.unshift(newSnakeHead);
+    snakeCopy.pop();
+    
+    setSnake(snakeCopy);
 
   }
 
@@ -64,7 +115,7 @@ const SnakeGame = () => {
     context.clearRect(0, 0, CANVAS_SIZE[0], CANVAS_SIZE[1]);
 
     // Coloring the snake
-    context.fillStyle = "black";
+    context.fillStyle = "blue";
 
     /*
     args to fillRect()
@@ -83,6 +134,9 @@ const SnakeGame = () => {
     */
     context.fillRect(apple[0], apple[1], 1, 1);
   }, [snake, apple, gameOver])
+
+  
+  useInterval(() => gameLoop(), speed);
 
 
   return (
