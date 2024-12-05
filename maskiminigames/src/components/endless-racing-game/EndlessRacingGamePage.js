@@ -11,7 +11,6 @@ const EndlessRacingGamePage = () => {
   return (
     <div className={styles.page}>
       <div><Renderer /></div>
-
       <div className = {styles.buttons}>
         <Button
           link="/"

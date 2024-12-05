@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import playerCarImage from './assets/RedCar.png';
+import playerCarImage from '../../assets/endless-racing-game/RedCar.png';
 import { MAP_WIDTH, MAP_HEIGHT, IMAGE_WIDTH } from './Constants'
 import CarUtils from './CarUtils'
 
