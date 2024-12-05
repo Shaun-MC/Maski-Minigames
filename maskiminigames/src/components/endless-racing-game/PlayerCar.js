@@ -21,9 +21,9 @@ class PlayerCar extends Component {
         }
 
         this.verticalSpeed = 1;
-        this.horizontalSpeed = 5;
+        this.horizontalSpeed = 8;
         this.minSpeed = 0.1;
-        this.maxSpeed = 15;
+        this.maxSpeed = 50;
     };
 
     /*

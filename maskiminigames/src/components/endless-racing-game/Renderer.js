@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import PlayerCar from './PlayerCar';
 import RaceTrack from './RaceTrack';
 import Racer from './Racer';
@@ -31,9 +31,9 @@ class Renderer extends Component {
         this.isKeyPressed = {
             ArrowLeft: false,
             ArrowRight: false,
-            ArrowUp: false,
-            ArrowDown: false,
         };
+
+        this.accelerationInterval = 0;
     }
 
     createRacerRef = (index) => {
@@ -44,6 +44,7 @@ class Renderer extends Component {
     };
 
     accelerate = () => {
+        console.log("accelerating!");
         this.racerRefs.forEach((racerRef) => racerRef.current.deaccelerate());
         this.playerRef.current.accelerate();
     };
@@ -58,12 +59,18 @@ class Renderer extends Component {
         window.addEventListener('keydown', this.handleKeyDown);
         window.addEventListener('keyup', this.handleKeyUp);
 
+        this.interval = setInterval(() => {
+            this.accelerate();
+        }, 200); 
+
         this.animationFrameId = requestAnimationFrame(this.update);
     }
 
     componentWillUnmount() {
         window.removeEventListener('keydown', this.handleKeyDown);
         window.removeEventListener('keyup', this.handleKeyUp);
+
+        clearInterval(this.interval);
     }
 
     // Mark key as being pressed down
@@ -87,12 +94,6 @@ class Renderer extends Component {
         if (this.isKeyPressed['ArrowRight']) {
             this.playerRef.current.moveRight();
         }
-        if (this.isKeyPressed['ArrowUp']) {
-            this.accelerate();
-        }
-        if (this.isKeyPressed['ArrowDown']) {
-            this.deaccelerate();
-        }
 
         this.animationFrameId = requestAnimationFrame(this.update);
     }
@@ -109,6 +110,7 @@ class Renderer extends Component {
                 </div>
                 <RaceTrack width={MAP_WIDTH} height={MAP_HEIGHT} />
             </div>
+
 
         );
     }
