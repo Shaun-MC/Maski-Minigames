@@ -103,13 +103,9 @@ class Renderer extends Component {
             <div className="game-container"
                 style={containerStyle}>
                 <div>
-                    <Racer ref={this.createRacerRef(0)} />
-                    <Racer ref={this.createRacerRef(1)} />
-                    <Racer ref={this.createRacerRef(2)} />
-                    <Racer ref={this.createRacerRef(3)} />
-                    <Racer ref={this.createRacerRef(4)} />
                     <PlayerCar
                         ref={this.playerRef} />
+                    {[...Array(5)].map((_, index) => (<Racer key={index} ref={this.createRacerRef(index)} />))}
                 </div>
                 <RaceTrack width={MAP_WIDTH} height={MAP_HEIGHT} />
             </div>
