@@ -39,7 +39,6 @@ const SnakeGamePage = () => {
           customStyle={styles.helpButton}
         />
       </div>
-      <SnakeGame/>
     </header>
   );
 };
