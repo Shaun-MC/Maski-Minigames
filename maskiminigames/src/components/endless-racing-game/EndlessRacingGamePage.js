@@ -13,7 +13,7 @@ const EndlessRacingGamePage = () => {
       <div className={styles.frame}>
         <Renderer />
       </div>
-      <div className={styles.buttons}>
+      <div className={styles.buttons} style={{marginBottom: '60px'}}>
         <Button
           link="/"
           imageSrc={homepageButtonImage}
