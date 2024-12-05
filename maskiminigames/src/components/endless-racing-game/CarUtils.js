@@ -33,14 +33,14 @@ export const CarUtils = {
     Sets up common variables of a race car
     */
     initialize(instance) {
-      // Set up variables
-      instance.width = IMAGE_WIDTH;
-      instance.height = IMAGE_HEIGHT;
-  
-      instance.trackEdges = {
-          leftEdge: 0,
-          rightEdge: MAP_WIDTH - instance.width
-      };
+        // Set up variables
+        instance.width = IMAGE_WIDTH;
+        instance.height = IMAGE_HEIGHT;
+    
+        instance.trackEdges = {
+            leftEdge: 0,
+            rightEdge: MAP_WIDTH - instance.width
+        };
     },
 
     /*
