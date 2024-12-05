@@ -13,8 +13,9 @@ const containerStyle = {
   height: `${MAP_HEIGHT}px`,
   width: `${MAP_WIDTH}px`,
   margin: '0 auto',
+  position: 'relative',
+  boxSizing: 'border-box'
 };
-
 
 /**
  * @class Renderer
