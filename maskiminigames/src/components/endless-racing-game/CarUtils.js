@@ -37,13 +37,9 @@ export const CarUtils = {
       instance.width = IMAGE_WIDTH;
       instance.height = IMAGE_HEIGHT;
   
-      // Get the edges of the centered track
-      const leftEdge = 0;
-      const rightEdge = MAP_WIDTH;
-  
       instance.trackEdges = {
-          leftEdge: leftEdge, // Adjust for car center
-          rightEdge: rightEdge - instance.width, // Adjust for car center
+          leftEdge: 0,
+          rightEdge: MAP_WIDTH - instance.width
       };
     },
 
