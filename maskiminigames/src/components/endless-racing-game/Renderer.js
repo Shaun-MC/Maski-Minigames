@@ -15,8 +15,7 @@ const containerStyle = {
   width: `${MAP_WIDTH}px`,
   margin: '0 auto',
   position: 'relative',
-  boxSizing: 'border-box',
-  border: '2px solid blue', // Temporary debug border
+  boxSizing: 'border-box'
 };
 
 /**
