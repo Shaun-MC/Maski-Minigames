@@ -17,7 +17,7 @@ class PlayerCar extends Component {
 
         this.state = {
             x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
-            y: MAP_HEIGHT / 3
+            y: MAP_HEIGHT / 2
         }
 
         this.verticalSpeed = 1;
@@ -52,6 +52,14 @@ class PlayerCar extends Component {
 
     deaccelerate = () => {
         CarUtils.deaccelerate(this, this.minSpeed);
+    }
+
+    slowdownHorizontalSpeed = () => {
+        this.horizontalSpeed = 4;
+    }
+
+    resetHorizontalSpeed = () => {
+        this.horizontalSpeed = 8;
     }
 
     // Render out the racer
