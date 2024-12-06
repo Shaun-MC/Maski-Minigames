@@ -196,7 +196,6 @@ const SnakeGame = () => {
         marginBottom: "2rem",
       }}
     >
-      <StartGameButton startGame={startGame} />
       <div
         style={{
           fontFamily: "monospace",
@@ -214,6 +213,7 @@ const SnakeGame = () => {
       />
 
       {gameOver && <GameOver score={score} startGame={startGame} />}
+      <StartGameButton startGame={startGame} text={"START GAME"}/>
     </div>
   );
 };

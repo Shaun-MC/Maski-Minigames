@@ -1,4 +1,5 @@
 import React from "react";
+import StartGameButton from "./StartGameButton";
 
 const GameOver = ({ score, startGame }) => {
   return (
@@ -35,19 +36,10 @@ const GameOver = ({ score, startGame }) => {
             flexDirection: "column",
           }}
         >
-          <button
-            style={{
-              all: "unset",
-              marginTop: "20px",
-              padding: "6px",
-              borderRadius: "10px",
-              background: "green",
-              cursor: "pointer",
-            }}
-            onClick={startGame}
-          >
-            RESTART GAME
-          </button>
+          <StartGameButton
+            startGame={startGame}
+            text={"RESTART"}
+          />
           <button
             style={{
               all: "unset",
