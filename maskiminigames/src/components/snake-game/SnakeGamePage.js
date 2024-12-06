@@ -28,17 +28,14 @@ const SnakeGamePage = () => {
           altText="Go Home"
         />
         <Button
-          link="/snake-game/play"
-          imageSrc={playGameButtonImage}
-          altText="Play Snake"
-        />
-        <Button
           link=""
           imageSrc={helpButtonImage}
           altText="Help"
           customStyle={styles.helpButton}
         />
       </div>
+    
+      <div/>
     </header>
   );
 };
