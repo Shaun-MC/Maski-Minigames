@@ -64,7 +64,7 @@ class Renderer extends Component {
 
         this.interval = setInterval(() => {
             this.accelerate();
-        }, 200); 
+        }, 300); 
 
         this.animationFrameId = requestAnimationFrame(this.update);
     }
