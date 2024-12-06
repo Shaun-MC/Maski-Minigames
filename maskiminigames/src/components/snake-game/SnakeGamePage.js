@@ -23,7 +23,9 @@ const SnakeGamePage = () => {
         className={styles.logo}
         alt="snakeLogo"
       />
+      <div className={styles.frame}>
         <SnakeGame />
+      </div>
       <div className={styles.buttons} style={{marginBottom: '60px'}}> 
         <Button
           link="/"
