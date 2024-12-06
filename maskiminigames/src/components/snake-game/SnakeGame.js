@@ -198,7 +198,6 @@ const SnakeGame = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          marginBottom: "2rem",
         }}
       >
         <div
@@ -207,9 +206,7 @@ const SnakeGame = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            marginBottom: "2rem",
-            padding:"2rem",
-            borderRadius:"10px",
+            padding:"2rem"
           }}
         >
           <div

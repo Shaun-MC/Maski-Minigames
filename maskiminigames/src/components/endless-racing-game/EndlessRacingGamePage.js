@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button.js';
+import endlessRacingLogo from '../../assets/endless-racing-game/endless_racing_logo.png';
 import homepageButtonImage from '../../assets/homepage_button.png';
 import snakeButtonImage from '../../assets/snake_button.png';
 import styles from '../../styles/PageStyles.module.css';
@@ -10,6 +11,11 @@ const EndlessRacingGamePage = () => {
 
   return (
     <div className={styles.page}>
+      <img
+        src={endlessRacingLogo}
+        className={styles.logo}
+        alt="snakeLogo"
+      />
       <div className={styles.frame}>
         <Renderer />
       </div>
