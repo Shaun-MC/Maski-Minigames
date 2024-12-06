@@ -13,6 +13,15 @@ const RACE_CAR_IMAGES = [
     pinkCarImage
 ]
 
+const INITIAL_MIN_VERT_SPEED = -3;
+const INITIAL_MAX_VERT_SPEED = -0.1;
+const INITIAL_MIN_HORZ_SPEED = -0.1;
+const INITIAL_MAX_HORZ_SPEED = 0.1;
+const INITIAL_MIN_OFFSET = -10;
+const INITIAL_MAX_OFFSET = 10;
+const VERTICAL_SPEED_VARIANCE = 0.5; 
+const HORIZONTAL_SPEED_VARIANCE = 0.05; 
+
 /**
  * @class Racer
  * @description A racer car that travels along the road alongside the player.
@@ -26,10 +35,11 @@ class Racer extends Component {
         super(props);
         CarUtils.initialize(this);
         this.setRandomSpeeds();
+        var randomVerticalOffset = this.randomNumberInRange(INITIAL_MIN_OFFSET, INITIAL_MAX_OFFSET);
 
         this.state = {
             x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
-            y: -MAP_HEIGHT + IMAGE_HEIGHT // Bottom of the screen
+            y: -MAP_HEIGHT + IMAGE_HEIGHT + randomVerticalOffset, // Add slight offset to add variance to car positions
         }
 
         // Set image to a random colored car
@@ -43,15 +53,15 @@ class Racer extends Component {
     };
 
     setRandomSpeeds = () => {
-        this.verticalSpeed = this.randomNumberInRange(-0.1, -3);
-        this.horizontalSpeed = this.randomNumberInRange(-0.1, 0.1);
+        this.verticalSpeed = this.randomNumberInRange(INITIAL_MIN_VERT_SPEED, INITIAL_MAX_VERT_SPEED);
+        this.horizontalSpeed = this.randomNumberInRange(INITIAL_MIN_HORZ_SPEED, INITIAL_MAX_HORZ_SPEED);
     }
 
     // Adds random color and modifies speed somewhat
     // Additionally modifies the horizontal position of the car
     randomizeCarState = () => {
-        this.verticalSpeed = this.verticalSpeed + this.randomNumberInRange(-0.5, 0.5);
-        this.horizontalSpeed = this.horizontalSpeed + this.randomNumberInRange(-0.05, 0.05);
+        this.verticalSpeed = this.verticalSpeed + this.randomNumberInRange(-VERTICAL_SPEED_VARIANCE, VERTICAL_SPEED_VARIANCE);
+        this.horizontalSpeed = this.horizontalSpeed + this.randomNumberInRange(-HORIZONTAL_SPEED_VARIANCE, HORIZONTAL_SPEED_VARIANCE);
         this.imageIndex = this.randomNumberInRange(0, RACE_CAR_IMAGES.length - 1);
         this.raceCarImage = RACE_CAR_IMAGES[this.imageIndex];
     }

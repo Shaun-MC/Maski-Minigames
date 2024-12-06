@@ -5,16 +5,16 @@ import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
 
 // Used to center all of the components that are a part of the game
 const containerStyle = {
-  overflow: 'hidden',
-  backgroundColor: `#717874`,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: `${MAP_HEIGHT}px`,
-  width: `${MAP_WIDTH}px`,
-  margin: '0 auto',
-  position: 'relative',
-  boxSizing: 'border-box'
+    overflow: 'hidden',
+    backgroundColor: `#717874`,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: `${MAP_HEIGHT}px`,
+    width: `${MAP_WIDTH}px`,
+    margin: '0 auto',
+    position: 'relative',
+    boxSizing: 'border-box'
 };
 
 /**
@@ -35,6 +35,9 @@ class Renderer extends Component {
         this.isKeyPressed = {
             ArrowLeft: false,
             ArrowRight: false,
+            Shift: false,
+            a: false,
+            d: false,
         };
 
         this.accelerationInterval = 0;
@@ -64,7 +67,7 @@ class Renderer extends Component {
 
         this.interval = setInterval(() => {
             this.accelerate();
-        }, 300); 
+        }, 300);
 
         this.animationFrameId = requestAnimationFrame(this.update);
     }
@@ -81,21 +84,25 @@ class Renderer extends Component {
         // handleKeyDown handles holding key presses in an odd manner,
         // so I instead created a bool to check against, rather than the key
         // itself.
-        event.preventDefault();
-        console.log(`Pressed key ${event.key}`)
-        this.isKeyPressed[event.key] = true;
+        if (this.isKeyPressed[event.key] != null) {
+            event.preventDefault();
+            console.log(`Pressed key ${event.key}`)
+            this.isKeyPressed[event.key] = true;
+        }
     };
 
     handleKeyUp = (event) => {
-        console.log(`Stopped pressing key ${event.key}`)
-        this.isKeyPressed[event.key] = false;
+        if (this.isKeyPressed[event.key] != null) {
+            console.log(`Stopped pressing key ${event.key}`)
+            this.isKeyPressed[event.key] = false;
+        }
     };
 
     update = () => {
-        if (this.isKeyPressed['ArrowLeft']) {
+        if (this.isKeyPressed['ArrowLeft'] || this.isKeyPressed['a']) {
             this.playerRef.current.moveLeft();
         }
-        if (this.isKeyPressed['ArrowRight']) {
+        if (this.isKeyPressed['ArrowRight'] || this.isKeyPressed['d']) {
             this.playerRef.current.moveRight();
         }
 
@@ -115,10 +122,10 @@ class Renderer extends Component {
             <div style={containerStyle}>
                 <PlayerCar ref={this.playerRef} />
                 {[...Array(5)].map((_, index) => (
-                  <Racer
-                    key={index}
-                    ref={this.createRacerRef(index)}
-                  />
+                    <Racer
+                        key={index}
+                        ref={this.createRacerRef(index)}
+                    />
                 ))}
             </div>
         );
