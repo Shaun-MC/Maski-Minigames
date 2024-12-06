@@ -19,7 +19,7 @@ const SnakeGame = () => {
   const [score, setScore] = useState(0);
 
   // Starting snake moving upward.
-  const [direction, setDirection] = useState([0, -1]);
+  const [direction, setDirection] = useState(DIRECTIONS[38]);
 
   const [speed, setSpeed] = useState(null);
 
