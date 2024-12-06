@@ -3,6 +3,8 @@ import playerCarImage from '../../assets/endless-racing-game/RedCar.png';
 import { MAP_WIDTH, MAP_HEIGHT, IMAGE_WIDTH } from './Constants'
 import CarUtils from './CarUtils'
 
+const HORIZONTAL_SPEED = 8;
+
 /**
  * @class PlayerCar
  * @description The player car that the player controls for the game.
@@ -21,7 +23,7 @@ class PlayerCar extends Component {
         }
 
         this.verticalSpeed = 1;
-        this.horizontalSpeed = 8;
+        this.horizontalSpeed = HORIZONTAL_SPEED;
         this.minSpeed = 0.1;
         this.maxSpeed = 50;
     };
@@ -55,11 +57,11 @@ class PlayerCar extends Component {
     }
 
     slowdownHorizontalSpeed = () => {
-        this.horizontalSpeed = 4;
+        this.horizontalSpeed = HORIZONTAL_SPEED / 2;
     }
 
     resetHorizontalSpeed = () => {
-        this.horizontalSpeed = 8;
+        this.horizontalSpeed = HORIZONTAL_SPEED;
     }
 
     // Render out the racer

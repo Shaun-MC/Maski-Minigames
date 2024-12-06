@@ -92,8 +92,10 @@ class Renderer extends Component {
     };
 
     handleKeyUp = (event) => {
-        console.log(`Stopped pressing key ${event.key}`)
-        this.isKeyPressed[event.key] = false;
+        if (this.isKeyPressed[event.key] != null) {
+            console.log(`Stopped pressing key ${event.key}`)
+            this.isKeyPressed[event.key] = false;
+        }
     };
 
     update = () => {
