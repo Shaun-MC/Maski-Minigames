@@ -16,7 +16,7 @@ class PlayerCar extends Component {
         CarUtils.initialize(this);
 
         this.state = {
-            x: MAP_WIDTH / 2 + IMAGE_WIDTH / 4,
+            x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
             y: MAP_HEIGHT / 3
         }
 
@@ -54,10 +54,10 @@ class PlayerCar extends Component {
         CarUtils.deaccelerate(this, this.minSpeed);
     }
 
-    // Render out the player
+    // Render out the racer
     render() {
         const { x, y } = this.state;
-        return (CarUtils.renderCar(x, y, playerCarImage));
+        return (CarUtils.renderCar(x, y, playerCarImage, "Player"));
     }
 }
 

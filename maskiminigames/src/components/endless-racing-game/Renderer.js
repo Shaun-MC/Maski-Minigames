@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import PlayerCar from './PlayerCar';
-import RaceTrack from './RaceTrack';
 import Racer from './Racer';
 import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
 
 // Used to center all of the components that are a part of the game
 const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    margin: 0,
+  overflow: 'hidden',
+  backgroundColor: `#717874`,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: `${MAP_HEIGHT}px`,
+  width: `${MAP_WIDTH}px`,
+  margin: '0 auto',
+  position: 'relative',
+  boxSizing: 'border-box'
 };
 
 /**
@@ -100,17 +104,15 @@ class Renderer extends Component {
     // Renders out the game
     render() {
         return (
-            <div className="game-container"
-                style={containerStyle}>
-                <div>
-                    <PlayerCar
-                        ref={this.playerRef} />
-                    {[...Array(5)].map((_, index) => (<Racer key={index} ref={this.createRacerRef(index)} />))}
-                </div>
-                <RaceTrack width={MAP_WIDTH} height={MAP_HEIGHT} />
+            <div style={containerStyle}>
+                <PlayerCar ref={this.playerRef} />
+                {[...Array(5)].map((_, index) => (
+                  <Racer
+                    key={index}
+                    ref={this.createRacerRef(index)}
+                  />
+                ))}
             </div>
-
-
         );
     }
 }

@@ -113,7 +113,7 @@ class Racer extends Component {
     // Render out the racer
     render() {
         const { x, y } = this.state;
-        return (CarUtils.renderCar(x, y, this.raceCarImage));
+        return (CarUtils.renderCar(x, y, this.raceCarImage, "Racer"));
     }
 }
 

@@ -13,18 +13,18 @@ export const CarUtils = {
     /*
     Render out a car, given a position and the image being used
     */
-    renderCar: (x, y, raceCarImage) => (
+    renderCar: (x, y, raceCarImage, alt) => (
         <div
             className="racer"
             style={{
-                position: "relative",
+                position: "absolute",
                 left: `${x}px`,
                 top: `${y}px`,
             }}
         >
             <img
                 src={raceCarImage}
-                alt="Racer"
+                alt={alt}
             />
         </div>
     ),
@@ -36,11 +36,10 @@ export const CarUtils = {
         // Set up variables
         instance.width = IMAGE_WIDTH;
         instance.height = IMAGE_HEIGHT;
-
-        // Get the edges of the track
+    
         instance.trackEdges = {
-            leftEdge: instance.width,
-            rightEdge: MAP_WIDTH
+            leftEdge: 0,
+            rightEdge: MAP_WIDTH - instance.width
         };
     },
 
