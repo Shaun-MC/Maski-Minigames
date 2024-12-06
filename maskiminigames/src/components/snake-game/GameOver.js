@@ -1,6 +1,13 @@
 import React from "react";
 import StartGameButton from "./StartGameButton";
 
+
+/**
+ * @component GameOver
+ * @description Game Over Popup UI Component
+ * @author Khushmeet Gobindpuri
+ * @date December 2024
+ */
 const GameOver = ({ score, startGame }) => {
   return (
     <>

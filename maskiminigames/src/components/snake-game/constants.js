@@ -1,3 +1,10 @@
+/**
+ * @file constants.js
+ * @description Houses constants for Snake Game
+ * @author Khushmeet Gobindpuri
+ * @date December 2024
+ */
+
 const CANVAS_SIZE = [600, 600];
 const SNAKE_START = [
   [8, 7],
@@ -20,7 +27,15 @@ const DIRECTIONS = {
   68: [1, 0], // right (D)
 };
 
-// Only allowing WASD and Arrow keys for movement. 
-const ALLOWED_KEYCODES = new Set([37,38, 39, 40, 65, 68, 83, 87])
+// Only allowing WASD and Arrow keys for movement.
+const ALLOWED_KEYCODES = new Set([37, 38, 39, 40, 65, 68, 83, 87]);
 
-export { CANVAS_SIZE, SNAKE_START, APPLE_START, SCALE, SPEED, DIRECTIONS, ALLOWED_KEYCODES };
+export {
+  CANVAS_SIZE,
+  SNAKE_START,
+  APPLE_START,
+  SCALE,
+  SPEED,
+  DIRECTIONS,
+  ALLOWED_KEYCODES,
+};

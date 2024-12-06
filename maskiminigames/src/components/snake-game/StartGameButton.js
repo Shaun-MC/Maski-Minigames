@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * @component StartGameButton
+ * @description Custom Button for Starting Snake Game. 
+ * @author Khushmeet Gobindpuri
+ * @date December 2024
+ */
 const StartGameButton = ({ startGame, text}) => {
   return (
     <button

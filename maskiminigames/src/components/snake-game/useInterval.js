@@ -1,4 +1,9 @@
-// Custom Hook by Dan Abramov
+/**
+ * @function useInterval
+ * @description Custom React Hook
+ * @author Dan Abramov (external)
+ * @date December 2024
+ */
 import { useEffect, useRef } from "react";
 
 export function useInterval(callback, delay) {

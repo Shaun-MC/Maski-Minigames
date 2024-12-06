@@ -11,6 +11,17 @@ import {
 } from "./constants";
 import GameOver from "./GameOver";
 import StartGameButton from "./StartGameButton";
+import homepageButtonImage from "../../assets/homepage_button.png";
+import endlessRacingButtonImage from "../../assets/endless_racing_button.png";
+import Button from "../Button";
+import styles from "../../styles/PageStyles.module.css"
+
+/**
+ * @component SnakeGame
+ * @description Houses game logic for Snake Game.
+ * @author Khushmeet Gobindpuri
+ * @date December 2024
+ */
 
 const SnakeGame = () => {
   const canvasRef = useRef();
@@ -182,36 +193,61 @@ const SnakeGame = () => {
   useInterval(() => gameLoop(), speed);
 
   return (
-    <div
-      id="SnakeGameContainer"
-      role="button"
-      tabIndex="0"
-      onKeyDown={(e) => moveSnake(e)}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginBottom: "2rem",
-      }}
-    >
+    <div className={styles.page}>
       <div
+        role="button"
+        tabIndex="0"
+        onKeyDown={(e) => moveSnake(e)}
         style={{
-          fontFamily: "monospace",
-          fontSize: "30px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginBottom: "2rem",
         }}
       >
-        {" "}
-        {"Current Score: " + score}{" "}
-      </div>
-      <canvas
-        style={{ border: "1px solid black" }}
-        ref={canvasRef}
-        width={`${CANVAS_SIZE[0]}px`}
-        height={`${CANVAS_SIZE[1]}px`}
-      />
+        <div
+          style={{
+            display: "flex",
+            padding: "1rem",
+          }}
+        >
+          <Button link="/" imageSrc={homepageButtonImage} altText="Go Home" />
+          <Button
+            link="/endless-racer"
+            imageSrc={endlessRacingButtonImage}
+            altText="Play Endless Racing"
+          />
+        </div>
+        <div
+          style={{
+            background: "white",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: "2rem",
+            padding:"2rem",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "monospace",
+              fontSize: "30px",
+            }}
+          >
+            {" "}
+            {"Current Score: " + score}{" "}
+          </div>
+          <canvas
+            style={{ border: "1px solid black" }}
+            ref={canvasRef}
+            width={`${CANVAS_SIZE[0]}px`}
+            height={`${CANVAS_SIZE[1]}px`}
+          />
 
-      {gameOver && <GameOver score={score} startGame={startGame} />}
-      <StartGameButton startGame={startGame} text={"START GAME"}/>
+          {gameOver && <GameOver score={score} startGame={startGame} />}
+          <StartGameButton startGame={startGame} text={"START GAME"} />
+        </div>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button.js";
 import snakeLogo from "../../assets/snake-game/snake_logo.png";
 import homepageButtonImage from "../../assets/homepage_button.png";
-import playGameButtomImage from "../../assets/snake-game/play_snake_button.png";
+import playGameButtonImage from "../../assets/snake-game/play_snake_button.png";
 import helpButtonImage from "../../assets/snake-game/help_button.png";
 import styles from "../../styles/PageStyles.module.css";
 
@@ -28,8 +28,8 @@ const SnakeGamePage = () => {
           altText="Go Home"
         />
         <Button
-          link=""
-          imageSrc={playGameButtomImage}
+          link="/snake-game/play"
+          imageSrc={playGameButtonImage}
           altText="Play Snake"
         />
         <Button
