@@ -127,8 +127,6 @@ const SnakeGame = () => {
       snakeCopy[0][1] + direction[1],
     ];
 
-    // The following two lines are what create
-    // the snake "crawling" look
     snakeCopy.unshift(newSnakeHead);
 
     // Check for wall collision
