@@ -92,10 +92,10 @@ class Renderer extends Component {
     };
 
     update = () => {
-        if (this.isKeyPressed['ArrowLeft']) {
+        if (this.isKeyPressed['ArrowLeft'] || this.isKeyPressed['a']) {
             this.playerRef.current.moveLeft();
         }
-        if (this.isKeyPressed['ArrowRight']) {
+        if (this.isKeyPressed['ArrowRight'] || this.isKeyPressed['d']) {
             this.playerRef.current.moveRight();
         }
 
