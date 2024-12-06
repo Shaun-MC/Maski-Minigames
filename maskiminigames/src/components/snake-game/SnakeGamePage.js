@@ -6,6 +6,8 @@ import playGameButtonImage from "../../assets/snake-game/play_snake_button.png";
 import helpButtonImage from "../../assets/snake-game/help_button.png";
 import styles from "../../styles/PageStyles.module.css";
 
+import SnakeGame from "./SnakeGame.js";
+
 /**
  * @component SnakeGamePage
  * @description Landing page for the Snake Game. Can play the game or display game instructions.
@@ -21,6 +23,7 @@ const SnakeGamePage = () => {
         className={styles.logo}
         alt="snakeLogo"
       />
+        <SnakeGame />
       <div className={styles.buttons}> 
         <Button
           link="/"

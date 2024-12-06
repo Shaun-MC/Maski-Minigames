@@ -11,10 +11,6 @@ import {
 } from "./constants";
 import GameOver from "./GameOver";
 import StartGameButton from "./StartGameButton";
-import homepageButtonImage from "../../assets/homepage_button.png";
-import endlessRacingButtonImage from "../../assets/endless_racing_button.png";
-import Button from "../Button";
-import styles from "../../styles/PageStyles.module.css"
 
 /**
  * @component SnakeGame
@@ -193,7 +189,7 @@ const SnakeGame = () => {
   useInterval(() => gameLoop(), speed);
 
   return (
-    <div className={styles.page}>
+    <div>
       <div
         role="button"
         tabIndex="0"
@@ -205,19 +201,6 @@ const SnakeGame = () => {
           marginBottom: "2rem",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            padding: "1rem",
-          }}
-        >
-          <Button link="/" imageSrc={homepageButtonImage} altText="Go Home" />
-          <Button
-            link="/endless-racer"
-            imageSrc={endlessRacingButtonImage}
-            altText="Play Endless Racing"
-          />
-        </div>
         <div
           style={{
             background: "white",
