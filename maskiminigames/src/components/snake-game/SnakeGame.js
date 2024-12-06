@@ -226,6 +226,7 @@ const SnakeGame = () => {
             alignItems: "center",
             marginBottom: "2rem",
             padding:"2rem",
+            borderRadius:"10px",
           }}
         >
           <div
