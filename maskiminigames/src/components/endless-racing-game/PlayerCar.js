@@ -54,6 +54,14 @@ class PlayerCar extends Component {
         CarUtils.deaccelerate(this, this.minSpeed);
     }
 
+    slowdownHorizontalSpeed = () => {
+        this.horizontalSpeed = 4;
+    }
+
+    resetHorizontalSpeed = () => {
+        this.horizontalSpeed = 8;
+    }
+
     // Render out the racer
     render() {
         const { x, y } = this.state;

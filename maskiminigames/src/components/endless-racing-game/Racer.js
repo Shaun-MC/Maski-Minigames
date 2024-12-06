@@ -43,7 +43,7 @@ class Racer extends Component {
     };
 
     setRandomSpeeds = () => {
-        this.verticalSpeed = this.randomNumberInRange(-1, -3);
+        this.verticalSpeed = this.randomNumberInRange(-0.1, -3);
         this.horizontalSpeed = this.randomNumberInRange(-0.1, 0.1);
     }
 

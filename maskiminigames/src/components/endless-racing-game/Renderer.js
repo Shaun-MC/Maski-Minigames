@@ -81,6 +81,7 @@ class Renderer extends Component {
         // handleKeyDown handles holding key presses in an odd manner,
         // so I instead created a bool to check against, rather than the key
         // itself.
+        event.preventDefault();
         console.log(`Pressed key ${event.key}`)
         this.isKeyPressed[event.key] = true;
     };
@@ -96,6 +97,13 @@ class Renderer extends Component {
         }
         if (this.isKeyPressed['ArrowRight']) {
             this.playerRef.current.moveRight();
+        }
+
+        if (this.isKeyPressed['Shift']) {
+            this.playerRef.current.slowdownHorizontalSpeed();
+        }
+        else {
+            this.playerRef.current.resetHorizontalSpeed();
         }
 
         this.animationFrameId = requestAnimationFrame(this.update);
