@@ -36,8 +36,8 @@ class CollisionManager {
    const height = IMAGE_HEIGHT;
 
 
-   // Add buffer zone to make collision detection less strict (optional)
-   const buffer = 5; // pixels of tolerance
+   // buffer zone for collision detection
+   const buffer = 5; 
 
 
    // Perform bounding box collision detection with buffer
