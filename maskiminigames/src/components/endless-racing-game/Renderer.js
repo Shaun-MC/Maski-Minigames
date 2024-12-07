@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PlayerCar from './PlayerCar';
 import Racer from './Racer';
 import CollisionManager from './CollisionManager';
-import GameOver from '../snake-game/GameOver';
+import GameOver from '../GameOver';
 import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
 
 // Used to center all of the components that are a part of the game
