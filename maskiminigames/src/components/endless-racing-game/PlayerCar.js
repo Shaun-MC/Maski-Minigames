@@ -19,7 +19,7 @@ class PlayerCar extends Component {
 
         this.state = {
             x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
-            y: MAP_HEIGHT / 2
+            y: MAP_HEIGHT / 1.5
         }
 
         this.verticalSpeed = 1;

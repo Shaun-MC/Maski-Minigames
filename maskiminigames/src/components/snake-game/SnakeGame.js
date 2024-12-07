@@ -9,8 +9,8 @@ import {
   DIRECTIONS,
   ALLOWED_KEYCODES,
 } from "./constants";
-import GameOver from "./GameOver";
-import StartGameButton from "./StartGameButton";
+import GameOver from "../GameOver";
+import StartGameButton from "../StartGameButton";
 
 /**
  * @component SnakeGame
