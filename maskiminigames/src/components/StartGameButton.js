@@ -2,7 +2,7 @@ import React from "react";
 
 /**
  * @component StartGameButton
- * @description Custom Button for Starting Snake Game. 
+ * @description Custom button for starting a game. 
  * @author Khushmeet Gobindpuri
  * @date December 2024
  */
