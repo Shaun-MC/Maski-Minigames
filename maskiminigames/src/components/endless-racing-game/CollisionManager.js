@@ -1,6 +1,4 @@
 import { IMAGE_WIDTH, IMAGE_HEIGHT } from './Constants';
-
-
 /**
 * @class CollisionManager
 * @description Manages collision detection for the Endless Racer game

@@ -107,35 +107,35 @@ class Renderer extends Component {
 
    update = () => {
        // Exit if game is already over
-       if (this.state.gameOver) {
+        if (this.state.gameOver) {
            return;
-       }
+        }
            // Process movement first
-           if (this.isKeyPressed['ArrowLeft'] || this.isKeyPressed['a']) {
+        if (this.isKeyPressed['ArrowLeft'] || this.isKeyPressed['a']) {
                this.playerRef.current?.moveLeft();
-           }
-           if (this.isKeyPressed['ArrowRight'] || this.isKeyPressed['d']) {
+        }
+        if (this.isKeyPressed['ArrowRight'] || this.isKeyPressed['d']) {
                this.playerRef.current?.moveRight();
-           }
-           if (this.isKeyPressed['Shift']) {
+        }
+        if (this.isKeyPressed['Shift']) {
                this.playerRef.current?.slowdownHorizontalSpeed();
-           }
-           else {
-               this.playerRef.current?.resetHorizontalSpeed();
-           }
+        }
+        else {
+            this.playerRef.current?.resetHorizontalSpeed();
+        }
   
-           // Check for collisions
-           if (CollisionManager.detectCollisions(this.playerRef, this.racerRefs)) {
-               this.setState({ gameOver: true });
-               cancelAnimationFrame(this.animationFrameId);
-               clearInterval(this.interval);
-               return;
-           }
+        // Check for collisions
+        if (CollisionManager.detectCollisions(this.playerRef, this.racerRefs)) {
+            this.setState({ gameOver: true });
+            cancelAnimationFrame(this.animationFrameId);
+            clearInterval(this.interval);
+            return;
+        }
   
-           // Request next frame only if game isn't over
-           if (!this.state.gameOver) {
-               this.animationFrameId = requestAnimationFrame(this.update);
-           }
+        // Request next frame only if game isn't over
+        if (!this.state.gameOver) {
+            this.animationFrameId = requestAnimationFrame(this.update);
+        }
    }
 
 
