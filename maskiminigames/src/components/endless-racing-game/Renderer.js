@@ -141,9 +141,6 @@ class Renderer extends Component {
 
    // Renders out the game
    render() {
-       if (this.state.gameOver) {
-           return <GameOver />;
-       }
        return (
            <div style={containerStyle}>
                <PlayerCar ref={this.playerRef} />
@@ -153,6 +150,7 @@ class Renderer extends Component {
                        ref={this.createRacerRef(index)}
                    />
                ))}
+               {this.state.gameOver && <GameOver />}
            </div>
        );
    }
