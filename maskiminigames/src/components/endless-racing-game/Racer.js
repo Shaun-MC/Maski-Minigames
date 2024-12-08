@@ -34,7 +34,9 @@ class Racer extends Component {
     constructor(props) {
         super(props);
         CarUtils.initialize(this);
-        this.state = {};
+        this.state = {
+            y: -MAP_HEIGHT // Move off the screen for now
+        };
 
         this.initialize();
         this.minSpeed = -50;
