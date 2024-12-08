@@ -97,7 +97,7 @@ class RacerCar extends Component {
         if (xOffset != null) {
             console.log("Bonked into another car " + xOffset + " away from me");
             // Move the two colliding cars away from one another
-            this.setState({ x: this.state.x - (xOffset / 8) })
+            this.setState({ x: this.state.x - (xOffset / 16) })
 
             // Based on position from other car, make horizontal velocity negative/positive
             if (xOffset < 0) {
