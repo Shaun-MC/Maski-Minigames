@@ -16,17 +16,20 @@ class PlayerCar extends Component {
     constructor(props) {
         super(props);
         CarUtils.initialize(this);
-
-        this.state = {
-            x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
-            y: MAP_HEIGHT / 1.5
-        }
-
-        this.verticalSpeed = 1;
-        this.horizontalSpeed = HORIZONTAL_SPEED;
+        this.initialize();
+        
         this.minSpeed = 0.1;
         this.maxSpeed = 50;
     };
+
+    initialize = () => {
+        this.state = {
+            x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
+            y: MAP_HEIGHT / 1.5,
+            verticalSpeed: 1,
+            horizontalSpeed: HORIZONTAL_SPEED
+        }
+    }
 
     /*
     Move commands for the player, which move them in a specific direction
@@ -34,14 +37,14 @@ class PlayerCar extends Component {
     moveLeft = () => {
         if (this.state.x <= this.trackEdges.leftEdge) return;
         this.setState({
-            x: this.state.x - this.horizontalSpeed,
+            x: this.state.x - this.state.horizontalSpeed,
         });
     }
 
     moveRight = () => {
         if (this.state.x >= this.trackEdges.rightEdge) return;
         this.setState({
-            x: this.state.x + this.horizontalSpeed,
+            x: this.state.x + this.state.horizontalSpeed,
         });
     }
 
@@ -57,11 +60,11 @@ class PlayerCar extends Component {
     }
 
     slowdownHorizontalSpeed = () => {
-        this.horizontalSpeed = HORIZONTAL_SPEED / 2;
+        this.state.horizontalSpeed = HORIZONTAL_SPEED / 2;
     }
 
     resetHorizontalSpeed = () => {
-        this.horizontalSpeed = HORIZONTAL_SPEED;
+        this.state.horizontalSpeed = HORIZONTAL_SPEED;
     }
 
     // Render out the racer

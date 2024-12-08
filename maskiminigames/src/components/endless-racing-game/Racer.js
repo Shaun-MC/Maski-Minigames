@@ -15,10 +15,10 @@ const RACE_CAR_IMAGES = [
 
 const INITIAL_MIN_VERT_SPEED = -3;
 const INITIAL_MAX_VERT_SPEED = -0.1;
-const INITIAL_MIN_HORZ_SPEED = -0.1;
-const INITIAL_MAX_HORZ_SPEED = 0.1;
-const INITIAL_MIN_OFFSET = -10;
-const INITIAL_MAX_OFFSET = 10;
+const INITIAL_MIN_HORZ_SPEED = -1.1;
+const INITIAL_MAX_HORZ_SPEED = 1.1;
+const INITIAL_MIN_OFFSET = 10;
+const INITIAL_MAX_OFFSET = 30;
 const VERTICAL_SPEED_VARIANCE = 0.5; 
 const HORIZONTAL_SPEED_VARIANCE = 0.05; 
 
@@ -34,13 +34,21 @@ class Racer extends Component {
     constructor(props) {
         super(props);
         CarUtils.initialize(this);
-        this.setRandomSpeeds();
-        var randomVerticalOffset = this.randomNumberInRange(INITIAL_MIN_OFFSET, INITIAL_MAX_OFFSET);
 
-        this.state = {
+        this.initialize();
+        this.minSpeed = -50;
+        this.maxSpeed = 50;
+    };
+
+    initialize = () => {
+        CarUtils.initialize(this);
+        var randomVerticalOffset = this.randomNumberInRange(INITIAL_MIN_OFFSET, INITIAL_MAX_OFFSET);
+        this.state = ({
             x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
-            y: -MAP_HEIGHT + IMAGE_HEIGHT + randomVerticalOffset, // Add slight offset to add variance to car positions
-        }
+            y: -IMAGE_HEIGHT - randomVerticalOffset, // Add slight offset to add variance to car positions
+            verticalSpeed: this.randomNumberInRange(INITIAL_MIN_VERT_SPEED, INITIAL_MAX_VERT_SPEED),
+            horizontalSpeed: this.randomNumberInRange(INITIAL_MIN_HORZ_SPEED, INITIAL_MAX_HORZ_SPEED)
+        });
 
         // Set image to a random colored car
         this.imageIndex = this.randomNumberInRange(0, RACE_CAR_IMAGES.length - 1);
@@ -48,20 +56,17 @@ class Racer extends Component {
 
         // Begin constant updates
         this.animationFrameId = requestAnimationFrame(this.update);
-        this.minSpeed = -50;
-        this.maxSpeed = 50;
-    };
-
-    setRandomSpeeds = () => {
-        this.verticalSpeed = this.randomNumberInRange(INITIAL_MIN_VERT_SPEED, INITIAL_MAX_VERT_SPEED);
-        this.horizontalSpeed = this.randomNumberInRange(INITIAL_MIN_HORZ_SPEED, INITIAL_MAX_HORZ_SPEED);
+        
     }
 
     // Adds random color and modifies speed somewhat
     // Additionally modifies the horizontal position of the car
     randomizeCarState = () => {
-        this.verticalSpeed = this.verticalSpeed + this.randomNumberInRange(-VERTICAL_SPEED_VARIANCE, VERTICAL_SPEED_VARIANCE);
-        this.horizontalSpeed = this.horizontalSpeed + this.randomNumberInRange(-HORIZONTAL_SPEED_VARIANCE, HORIZONTAL_SPEED_VARIANCE);
+        this.setState({
+            verticalSpeed: this.state.verticalSpeed + this.randomNumberInRange(-VERTICAL_SPEED_VARIANCE, VERTICAL_SPEED_VARIANCE),
+            horizontalSpeed: this.state.horizontalSpeed + this.randomNumberInRange(-HORIZONTAL_SPEED_VARIANCE, HORIZONTAL_SPEED_VARIANCE),
+        });
+
         this.imageIndex = this.randomNumberInRange(0, RACE_CAR_IMAGES.length - 1);
         this.raceCarImage = RACE_CAR_IMAGES[this.imageIndex];
     }
@@ -86,8 +91,8 @@ class Racer extends Component {
     update = () => {
         // Apply speed update
         this.setState({
-            x: this.state.x - this.horizontalSpeed,
-            y: this.state.y - this.verticalSpeed,
+            x: this.state.x - this.state.horizontalSpeed,
+            y: this.state.y - this.state.verticalSpeed,
         });
 
         // Check if track was crossed
@@ -111,13 +116,11 @@ class Racer extends Component {
         if (this.state.x <= this.trackEdges.leftEdge || this.state.x >= this.trackEdges.rightEdge)
         {
             // Bounce off the edge of the track
-            this.horizontalSpeed = -this.horizontalSpeed;
             this.setState({
-                x: this.state.x - this.horizontalSpeed,
+                x: this.state.x + this.state.horizontalSpeed,
+                horizontalSpeed: 0 - this.state.horizontalSpeed
             });
         }
-
-        this.animationFrameId = requestAnimationFrame(this.update);
     }
 
     // Render out the racer

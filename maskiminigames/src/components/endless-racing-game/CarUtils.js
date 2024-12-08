@@ -47,14 +47,14 @@ export const CarUtils = {
     Accelerate or deaccelerate the speed of a car
     */
     accelerate(instance, maxSpeed) {
-        if (instance.verticalSpeed < maxSpeed) {
-            instance.verticalSpeed += 0.05;
+        if (instance.state.verticalSpeed < maxSpeed) {
+            instance.state.verticalSpeed += 0.05;
         }
     },
 
     deaccelerate(instance, minSpeed) {
-        if (instance.verticalSpeed > minSpeed) {
-            instance.verticalSpeed -= 0.05;
+        if (instance.state.verticalSpeed > minSpeed) {
+            instance.state.verticalSpeed -= 0.05;
         }
     },
 }

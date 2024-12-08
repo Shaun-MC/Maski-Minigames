@@ -1,3 +1,5 @@
+import React, { useState, useRef, useEffect } from "react";
+
 /**
  * @class GameManager
  * @description Manages the overall game state for Endless Racing game
@@ -5,29 +7,18 @@
  * @author Minh Pham
  * @date December 2024
  */
-class GameManager {
-    static victoryMessage = `You got a score of ${this.score}`;
+const GameManager = () => {
+    const [score, setScore] = useState(0);
+    const [running, setIsGameRunning] = useState(false);
 
-    constructor(isRunning, score)
+    const startGame = () =>
     {
-        this.isRunning = false;
-        this.score = 0;
+        setScore(0);
+        setIsGameRunning(true);
     }
 
-    startGame()
+    const stopGame = () =>
     {
-        score = 0;
-        isRunning = true;
-    }
-
-    stopGame()
-    {
-        console.log(victoryMessage);
-        isRunning = false;
-    }
-
-    updateGameState()
-    {
-        timer++;
+        setIsGameRunning(false);
     }
 }
