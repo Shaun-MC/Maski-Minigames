@@ -95,7 +95,6 @@ class RacerCar extends Component {
         // Check if racer was hit
         let xOffset = CollisionManager.detectRacerCollisions(this, racerRefs);
         if (xOffset != null) {
-            console.log("Bonked into another car " + xOffset + " away from me");
             // Move the two colliding cars away from one another
             this.setState({ x: this.state.x - (xOffset / 16) })
 
