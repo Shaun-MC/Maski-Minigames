@@ -14,11 +14,11 @@ const RACE_CAR_IMAGES = [
 ]
 
 const INITIAL_MIN_VERT_SPEED = -3;
-const INITIAL_MAX_VERT_SPEED = -0.1;
+const INITIAL_MAX_VERT_SPEED = -6;
 const INITIAL_MIN_HORZ_SPEED = -1.1;
 const INITIAL_MAX_HORZ_SPEED = 1.1;
-const INITIAL_MIN_OFFSET = 10;
-const INITIAL_MAX_OFFSET = 30;
+const INITIAL_MIN_OFFSET = 50;
+const INITIAL_MAX_OFFSET = MAP_HEIGHT;
 const VERTICAL_SPEED_VARIANCE = 0.5; 
 const HORIZONTAL_SPEED_VARIANCE = 0.05; 
 
@@ -34,6 +34,7 @@ class Racer extends Component {
     constructor(props) {
         super(props);
         CarUtils.initialize(this);
+        this.state = {};
 
         this.initialize();
         this.minSpeed = -50;
@@ -43,7 +44,7 @@ class Racer extends Component {
     initialize = () => {
         CarUtils.initialize(this);
         var randomVerticalOffset = this.randomNumberInRange(INITIAL_MIN_OFFSET, INITIAL_MAX_OFFSET);
-        this.state = ({
+        this.setState({
             x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
             y: -IMAGE_HEIGHT - randomVerticalOffset, // Add slight offset to add variance to car positions
             verticalSpeed: this.randomNumberInRange(INITIAL_MIN_VERT_SPEED, INITIAL_MAX_VERT_SPEED),

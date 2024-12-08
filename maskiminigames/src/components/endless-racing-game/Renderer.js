@@ -60,12 +60,6 @@ class Renderer extends Component {
         console.log("Starting the game!");
 
         // Reset all variables
-        this.setState({ 
-            score: 0,
-            gameOver: false,
-            gameRunning: true 
-        });
-
         this.isKeyPressed = {
             ArrowLeft: false,
             ArrowRight: false,
@@ -84,6 +78,12 @@ class Renderer extends Component {
         this.interval = setInterval(() => {
             this.accelerate();
         }, 300);
+
+        this.setState({ 
+            score: 0,
+            gameOver: false,
+            gameRunning: true 
+        });
     }
 
     increaseScore = () => {
