@@ -5,6 +5,7 @@ import greenCarImage from '../../assets/endless-racing-game/GreenCar.png';
 import pinkCarImage from '../../assets/endless-racing-game/PinkCar.png';
 import { MAP_HEIGHT, IMAGE_HEIGHT } from './Constants'
 import CarUtils from './CarUtils'
+import CollisionManager from './CollisionManager';
 
 const RACE_CAR_IMAGES = [
     blackCarImage,
@@ -19,8 +20,8 @@ const INITIAL_MIN_HORZ_SPEED = -1.1;
 const INITIAL_MAX_HORZ_SPEED = 1.1;
 const INITIAL_MIN_OFFSET = 50;
 const INITIAL_MAX_OFFSET = MAP_HEIGHT;
-const VERTICAL_SPEED_VARIANCE = 0.5; 
-const HORIZONTAL_SPEED_VARIANCE = 0.05; 
+const VERTICAL_SPEED_VARIANCE = 0.5;
+const HORIZONTAL_SPEED_VARIANCE = 0.05;
 
 /**
  * @class Racer
@@ -59,7 +60,7 @@ class Racer extends Component {
 
         // Begin constant updates
         this.animationFrameId = requestAnimationFrame(this.update);
-        
+
     }
 
     // Adds random color and modifies speed somewhat
@@ -85,11 +86,52 @@ class Racer extends Component {
         CarUtils.deaccelerate(this, this.minSpeed);
     }
 
+    /*
+    Check for collision with track edges or other racers
+    */
+    collisionCheck = (racerRefs) => {
+        // Check if racer was hit
+        let xOffset = CollisionManager.detectRacerCollisions(this, racerRefs);
+        if (xOffset != null) {
+            console.log("Bonked into another car " + xOffset + " away from me");
+            // Move the two colliding cars away from one another
+            this.setState({ x: this.state.x - (xOffset / 8) })
+
+            // Based on position from other car, make horizontal velocity negative/positive
+            if (xOffset < 0) {
+                this.setState({ horizontalSpeed: -Math.abs(this.state.horizontalSpeed) * 0.9 });
+            }
+            else {
+                this.setState({ horizontalSpeed: Math.abs(this.state.horizontalSpeed) * 0.9 })
+            }
+        }
+
+        // Check if edge was hit
+        if (this.state.x <= this.trackEdges.leftEdge || this.state.x >= this.trackEdges.rightEdge) {
+            // Bounce off the edge of the track
+            this.setState({
+                x: this.state.x + this.state.horizontalSpeed,
+                horizontalSpeed: 0 - this.state.horizontalSpeed
+            });
+        }
+    }
+
     // Generates a random number between a given min and max
     randomNumberInRange = (min, max) => {
         return Math.floor(Math.random()
             * (max - min + 1)) + min;
     };
+
+    /*
+    Accelerate or deaccelerate the speed of a racer
+    */
+    accelerate = () => {
+        CarUtils.accelerate(this, this.maxSpeed);
+    }
+
+    deaccelerate = () => {
+        CarUtils.deaccelerate(this, this.minSpeed);
+    }
 
     update = () => {
         // Apply speed update
@@ -106,23 +148,12 @@ class Racer extends Component {
             });
             this.randomizeCarState();
         }
-        else if (this.state.y > MAP_HEIGHT)
-        {
+        else if (this.state.y > MAP_HEIGHT) {
             this.setState({
                 x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
                 y: -MAP_HEIGHT + IMAGE_HEIGHT,
             });
             this.randomizeCarState();
-        }
-
-        // Check if edge was hit
-        if (this.state.x <= this.trackEdges.leftEdge || this.state.x >= this.trackEdges.rightEdge)
-        {
-            // Bounce off the edge of the track
-            this.setState({
-                x: this.state.x + this.state.horizontalSpeed,
-                horizontalSpeed: 0 - this.state.horizontalSpeed
-            });
         }
     }
 

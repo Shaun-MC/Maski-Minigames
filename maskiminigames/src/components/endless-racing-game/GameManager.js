@@ -21,8 +21,8 @@ const containerStyle = {
 };
 
 /**
-* @class Renderer
-* @description Handles rendering all of the objects in the game.
+* @class GameManager
+* @description Handles all of the game systems for EndlessRacingGame.
 *
 * @author Minh Pham
 * @date December 2024
@@ -30,8 +30,6 @@ const containerStyle = {
 class GameManager extends Component {
     constructor(props) {
         super(props);
-
-        // Currently an unused reference but may be used later
         this.playerRef = React.createRef();
         this.racerRefs = [];
 
@@ -166,12 +164,14 @@ class GameManager extends Component {
         }
 
         // Check for collisions
-        if (CollisionManager.detectCollisions(this.playerRef, this.racerRefs)) {
+        if (CollisionManager.detectPlayerCollisions(this.playerRef, this.racerRefs)) {
             this.setState({ gameOver: true });
             cancelAnimationFrame(this.animationFrameId);
             clearInterval(this.interval);
             return;
         }
+
+        this.racerRefs.forEach((racerRef) => racerRef.current.collisionCheck(this.racerRefs));
 
         // Request next frame only if game isn't over
         if (!this.state.gameOver) {
