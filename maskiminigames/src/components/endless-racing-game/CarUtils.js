@@ -50,7 +50,9 @@ export const CarUtils = {
     */
     accelerate(instance, maxSpeed) {
         if (instance.state.verticalSpeed < maxSpeed) {
-            instance.state.verticalSpeed += ACCELERATION_INTERVAL;
+            instance.setState({
+                verticalSpeed: instance.state.verticalSpeed + ACCELERATION_INTERVAL
+            })
         }
     },
 
