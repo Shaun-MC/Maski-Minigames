@@ -44,8 +44,6 @@ class GameManager extends Component {
         };
 
         this.accelerationInterval = 0;
-
-
         this.state = {
             score: 0,
             gameRunning: false,
