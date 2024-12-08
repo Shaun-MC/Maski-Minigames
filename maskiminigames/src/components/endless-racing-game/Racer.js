@@ -22,6 +22,7 @@ const INITIAL_MIN_OFFSET = 50;
 const INITIAL_MAX_OFFSET = MAP_HEIGHT;
 const VERTICAL_SPEED_VARIANCE = 0.5;
 const HORIZONTAL_SPEED_VARIANCE = 0.05;
+const LOSS_IN_VELOCITY_UPON_COLLISION = 0.9;
 
 /**
  * @class Racer
@@ -99,10 +100,10 @@ class Racer extends Component {
 
             // Based on position from other car, make horizontal velocity negative/positive
             if (xOffset < 0) {
-                this.setState({ horizontalSpeed: -Math.abs(this.state.horizontalSpeed) * 0.9 });
+                this.setState({ horizontalSpeed: -Math.abs(this.state.horizontalSpeed) * LOSS_IN_VELOCITY_UPON_COLLISION });
             }
             else {
-                this.setState({ horizontalSpeed: Math.abs(this.state.horizontalSpeed) * 0.9 })
+                this.setState({ horizontalSpeed: Math.abs(this.state.horizontalSpeed) * LOSS_IN_VELOCITY_UPON_COLLISION })
             }
         }
 
