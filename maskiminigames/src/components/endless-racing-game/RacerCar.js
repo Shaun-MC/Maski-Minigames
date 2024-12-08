@@ -127,11 +127,11 @@ class RacerCar extends Component {
     Accelerate or deaccelerate the speed of a racer
     */
     accelerate = () => {
-        CarUtils.accelerate(this, this.maxSpeed);
+        CarUtils.accelerate(this, MAX_SPEED);
     }
 
     deaccelerate = () => {
-        CarUtils.deaccelerate(this, this.minSpeed);
+        CarUtils.deaccelerate(this, MIN_SPEED);
     }
 
     update = () => {

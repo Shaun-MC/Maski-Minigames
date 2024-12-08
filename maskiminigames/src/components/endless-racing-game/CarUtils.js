@@ -56,7 +56,9 @@ export const CarUtils = {
 
     deaccelerate(instance, minSpeed) {
         if (instance.state.verticalSpeed > minSpeed) {
-            instance.state.verticalSpeed -= ACCELERATION_INTERVAL;
+            instance.setState({
+                verticalSpeed: instance.state.verticalSpeed - ACCELERATION_INTERVAL
+            })
         }
     },
 }
