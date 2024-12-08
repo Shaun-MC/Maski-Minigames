@@ -1,6 +1,8 @@
 import { MAP_WIDTH, IMAGE_HEIGHT, IMAGE_WIDTH } from './Constants'
 import React from 'react';
 
+const ACCELERATION_INTERVAL = 0.05;
+
 /**
  * @class CarUtils
  * @description Contains common functions used between both the player and
@@ -48,13 +50,13 @@ export const CarUtils = {
     */
     accelerate(instance, maxSpeed) {
         if (instance.state.verticalSpeed < maxSpeed) {
-            instance.state.verticalSpeed += 0.05;
+            instance.state.verticalSpeed += ACCELERATION_INTERVAL;
         }
     },
 
     deaccelerate(instance, minSpeed) {
         if (instance.state.verticalSpeed > minSpeed) {
-            instance.state.verticalSpeed -= 0.05;
+            instance.state.verticalSpeed -= ACCELERATION_INTERVAL;
         }
     },
 }
