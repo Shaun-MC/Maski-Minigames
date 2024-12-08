@@ -4,6 +4,8 @@ import { MAP_WIDTH, MAP_HEIGHT, IMAGE_WIDTH } from './Constants'
 import CarUtils from './CarUtils'
 
 const HORIZONTAL_SPEED = 8;
+const MIN_SPEED = 0.1;
+const MAX_SPEED = 50;
 
 /**
  * @class PlayerCar
@@ -17,9 +19,6 @@ class PlayerCar extends Component {
         super(props);
         CarUtils.initialize(this);
         this.initialize();
-        
-        this.minSpeed = 0.1;
-        this.maxSpeed = 50;
     };
 
     initialize = () => {
@@ -52,11 +51,11 @@ class PlayerCar extends Component {
     Accelerate or deaccelerate the speed of the player
     */
     accelerate = () => {
-        CarUtils.accelerate(this, this.maxSpeed);
+        CarUtils.accelerate(this, MAX_SPEED);
     }
 
     deaccelerate = () => {
-        CarUtils.deaccelerate(this, this.minSpeed);
+        CarUtils.deaccelerate(this, MIN_SPEED);
     }
 
     slowdownHorizontalSpeed = () => {

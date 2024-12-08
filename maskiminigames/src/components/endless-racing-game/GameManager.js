@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PlayerCar from './PlayerCar';
-import Racer from './Racer';
+import RacerCar from './RacerCar';
 import CollisionManager from './CollisionManager';
 import StartGameButton from "../StartGameButton";
 import GameOver from "../GameOver";
@@ -187,7 +187,7 @@ class GameManager extends Component {
                 {!this.state.gameRunning && <StartGameButton startGame={this.startGame} text={"START GAME"} /> }
                 <PlayerCar ref={this.playerRef} />
                 {[...Array(5)].map((_, index) => (
-                    <Racer
+                    <RacerCar
                         key={index}
                         ref={this.createRacerRef(index)}
                     />

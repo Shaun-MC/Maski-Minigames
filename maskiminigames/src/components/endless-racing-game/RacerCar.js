@@ -14,6 +14,7 @@ const RACE_CAR_IMAGES = [
     pinkCarImage
 ]
 
+// Define constants for racer
 const INITIAL_MIN_VERT_SPEED = -3;
 const INITIAL_MAX_VERT_SPEED = -6;
 const INITIAL_MIN_HORZ_SPEED = -1.1;
@@ -23,6 +24,8 @@ const INITIAL_MAX_OFFSET = MAP_HEIGHT;
 const VERTICAL_SPEED_VARIANCE = 0.5;
 const HORIZONTAL_SPEED_VARIANCE = 0.05;
 const LOSS_IN_VELOCITY_UPON_COLLISION = 0.9;
+const MIN_SPEED = -50;
+const MAX_SPEED = 50;
 
 /**
  * @class Racer
@@ -32,7 +35,7 @@ const LOSS_IN_VELOCITY_UPON_COLLISION = 0.9;
  * @author Minh Pham
  * @date December 2024
  */
-class Racer extends Component {
+class RacerCar extends Component {
     constructor(props) {
         super(props);
         CarUtils.initialize(this);
@@ -41,8 +44,6 @@ class Racer extends Component {
         };
 
         this.initialize();
-        this.minSpeed = -50;
-        this.maxSpeed = 50;
     };
 
     initialize = () => {
@@ -80,11 +81,11 @@ class Racer extends Component {
     Accelerate or deaccelerate the speed of the player
     */
     accelerate = () => {
-        CarUtils.accelerate(this, this.maxSpeed);
+        CarUtils.accelerate(this, MAX_SPEED);
     }
 
     deaccelerate = () => {
-        CarUtils.deaccelerate(this, this.minSpeed);
+        CarUtils.deaccelerate(this, MIN_SPEED);
     }
 
     /*
@@ -165,4 +166,4 @@ class Racer extends Component {
     }
 }
 
-export default Racer;
+export default RacerCar;
