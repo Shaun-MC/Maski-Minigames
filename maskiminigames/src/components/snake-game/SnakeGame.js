@@ -1,3 +1,10 @@
+/**
+ * @component SnakeGame
+ * @description Houses game logic for Snake Game.
+ * @author Khushmeet Gobindpuri
+ * @date December 2024
+ */
+
 import React, { useState, useRef, useEffect } from "react";
 import { useInterval } from "./useInterval";
 import {
@@ -11,13 +18,6 @@ import {
 } from "./constants";
 import GameOver from "../GameOver";
 import StartGameButton from "../StartGameButton";
-
-/**
- * @component SnakeGame
- * @description Houses game logic for Snake Game.
- * @author Khushmeet Gobindpuri
- * @date December 2024
- */
 
 const SnakeGame = () => {
   const canvasRef = useRef();
