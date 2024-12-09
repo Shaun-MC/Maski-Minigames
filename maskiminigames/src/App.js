@@ -1,7 +1,7 @@
 /**
  * @file App.js
  * @description Houses routes for MASKI Minigames Website.
- * @author Khushmeet Gobindpuri
+ * @contributor Khushmeet Gobindpuri
  * @date December 2024
  */
 import { Routes, Route } from "react-router-dom";
