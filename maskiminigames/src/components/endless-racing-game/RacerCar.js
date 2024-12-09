@@ -42,8 +42,6 @@ class RacerCar extends Component {
         this.state = {
             y: -MAP_HEIGHT // Move off the screen for now
         };
-
-        this.initialize();
     };
 
     initialize = () => {
