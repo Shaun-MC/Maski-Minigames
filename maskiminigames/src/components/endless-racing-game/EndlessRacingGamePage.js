@@ -4,7 +4,7 @@ import endlessRacingLogo from '../../assets/endless-racing-game/endless_racing_l
 import homepageButtonImage from '../../assets/homepage_button.png';
 import snakeButtonImage from '../../assets/snake_button.png';
 import styles from '../../styles/PageStyles.module.css';
-import Renderer from './Renderer'
+import GameManager from './GameManager.js'
 
 const EndlessRacingGamePage = () => {
   document.body.style.overflow = "auto"
@@ -17,7 +17,7 @@ const EndlessRacingGamePage = () => {
         alt="snakeLogo"
       />
       <div className={styles.frame}>
-        <Renderer />
+        <GameManager />
       </div>
       <div className={styles.buttons} style={{marginBottom: '60px'}}>
         <Button
