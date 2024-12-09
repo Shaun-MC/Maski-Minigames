@@ -25,8 +25,9 @@ const SnakeGame = () => {
   const [apple, setApple] = useState(APPLE_START);
   const [score, setScore] = useState(0);
 
+  
   /*
-    Starting the game with snake moving upward.
+   Starting the game with the snake moving upward.
   */
   const [direction, setDirection] = useState(DIRECTIONS[38]);
 
@@ -75,7 +76,6 @@ const SnakeGame = () => {
     }
 
     if (validateInput(keyCode)) {
-      console.log("Valid input");
       setDirection(DIRECTIONS[keyCode]);
     }
     return;
