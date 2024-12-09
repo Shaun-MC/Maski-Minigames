@@ -96,14 +96,15 @@ class GameManager extends Component {
     };
 
     accelerate = () => {
-        this.racerRefs.forEach((racerRef) => racerRef.current.deaccelerate());
+        // We decelerate the racer cars to make the player car appear faster
+        this.racerRefs.forEach((racerRef) => racerRef.current.decelerate());
         this.playerRef.current.accelerate();
         this.increaseScore();
     };
 
-    deaccelerate = () => {
+    decelerate = () => {
         this.racerRefs.forEach((racerRef) => racerRef.current.accelerate());
-        this.playerRef.current.deaccelerate();
+        this.playerRef.current.decelerate();
     };
 
     // Setup keypress event listeners to handle movement

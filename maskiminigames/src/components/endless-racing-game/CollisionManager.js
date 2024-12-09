@@ -1,7 +1,5 @@
 import { IMAGE_WIDTH, IMAGE_HEIGHT } from './Constants';
 
-const width = IMAGE_WIDTH;
-const height = IMAGE_HEIGHT;
 const buffer = 5; // buffer zone for collision detection
 
 /**
@@ -32,10 +30,10 @@ class CollisionManager {
 
         // Perform bounding box collision detection with buffer
         return (
-            x1 < x2 + width - buffer &&
-            x1 + width - buffer > x2 &&
-            y1 < y2 + height - buffer &&
-            y1 + height - buffer > y2
+            x1 < x2 + IMAGE_WIDTH - buffer &&
+            x1 + IMAGE_WIDTH - buffer > x2 &&
+            y1 < y2 + IMAGE_HEIGHT - buffer &&
+            y1 + IMAGE_HEIGHT - buffer > y2
         );
     }
 

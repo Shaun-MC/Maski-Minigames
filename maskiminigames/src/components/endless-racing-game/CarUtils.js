@@ -46,7 +46,7 @@ export const CarUtils = {
     },
 
     /*
-    Accelerate or deaccelerate the speed of a car
+    Accelerate or decelerate the speed of a car
     */
     accelerate(instance, maxSpeed) {
         if (instance.state.verticalSpeed < maxSpeed) {
@@ -56,7 +56,7 @@ export const CarUtils = {
         }
     },
 
-    deaccelerate(instance, minSpeed) {
+    decelerate(instance, minSpeed) {
         if (instance.state.verticalSpeed > minSpeed) {
             instance.setState({
                 verticalSpeed: instance.state.verticalSpeed - ACCELERATION_INTERVAL

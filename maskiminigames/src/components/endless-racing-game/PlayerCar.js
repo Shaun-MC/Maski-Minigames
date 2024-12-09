@@ -18,16 +18,23 @@ class PlayerCar extends Component {
     constructor(props) {
         super(props);
         CarUtils.initialize(this);
+
+        // Define x and y in state so that we can call setState later
+        this.state = {
+            x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
+            y: MAP_HEIGHT / 1.5,
+        }
+
         this.initialize();
     };
 
     initialize = () => {
-        this.state = {
+        this.setState({
             x: MAP_WIDTH / 2 - IMAGE_WIDTH / 2,
             y: MAP_HEIGHT / 1.5,
             verticalSpeed: 1,
             horizontalSpeed: HORIZONTAL_SPEED
-        }
+        });
     }
 
     /*
@@ -48,14 +55,14 @@ class PlayerCar extends Component {
     }
 
     /*
-    Accelerate or deaccelerate the speed of the player
+    Accelerate or decelerate the speed of the player
     */
     accelerate = () => {
         CarUtils.accelerate(this, MAX_SPEED);
     }
 
-    deaccelerate = () => {
-        CarUtils.deaccelerate(this, MIN_SPEED);
+    decelerate = () => {
+        CarUtils.decelerate(this, MIN_SPEED);
     }
 
     slowdownHorizontalSpeed = () => {

@@ -78,14 +78,14 @@ class RacerCar extends Component {
     }
 
     /*
-    Accelerate or deaccelerate the speed of the player
+    Accelerate or decelerate the speed of the player
     */
     accelerate = () => {
         CarUtils.accelerate(this, MAX_SPEED);
     }
 
-    deaccelerate = () => {
-        CarUtils.deaccelerate(this, MIN_SPEED);
+    decelerate = () => {
+        CarUtils.decelerate(this, MIN_SPEED);
     }
 
     /*
@@ -124,14 +124,14 @@ class RacerCar extends Component {
     };
 
     /*
-    Accelerate or deaccelerate the speed of a racer
+    Accelerate or decelerate the speed of a racer
     */
     accelerate = () => {
         CarUtils.accelerate(this, MAX_SPEED);
     }
 
-    deaccelerate = () => {
-        CarUtils.deaccelerate(this, MIN_SPEED);
+    decelerate = () => {
+        CarUtils.decelerate(this, MIN_SPEED);
     }
 
     update = () => {
