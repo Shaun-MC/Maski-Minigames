@@ -20,6 +20,8 @@ const containerStyle = {
     boxSizing: 'border-box'
 };
 
+const ACCELERATION_INTERVAL = 300;
+
 /**
 * @class GameManager
 * @description Handles all of the game systems for EndlessRacingGame.
@@ -41,7 +43,6 @@ class GameManager extends Component {
             d: false,
         };
 
-        this.accelerationInterval = 0;
         this.state = {
             score: 0,
             gameRunning: false,
@@ -64,16 +65,14 @@ class GameManager extends Component {
             d: false,
         };
 
-        this.accelerationInterval = 0;
-
         // Reset position of player and enemy racers
         this.racerRefs.forEach((racerRef) => racerRef.current.initialize());
         this.playerRef?.current.initialize();
         this.animationFrameId = requestAnimationFrame(this.update);
 
         this.interval = setInterval(() => {
-            this.accelerate();
-        }, 300);
+            this.accelerateGame();
+        }, ACCELERATION_INTERVAL);
 
         this.setState({ 
             score: 0,
@@ -95,14 +94,16 @@ class GameManager extends Component {
         return this.racerRefs[index];
     };
 
-    accelerate = () => {
+    accelerateGame = () => {
         // We decelerate the racer cars to make the player car appear faster
         this.racerRefs.forEach((racerRef) => racerRef.current.decelerate());
+
+        // Accelerate player car
         this.playerRef.current.accelerate();
         this.increaseScore();
     };
 
-    decelerate = () => {
+    decelerateGame = () => {
         this.racerRefs.forEach((racerRef) => racerRef.current.accelerate());
         this.playerRef.current.decelerate();
     };
