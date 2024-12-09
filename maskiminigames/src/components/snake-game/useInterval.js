@@ -1,6 +1,8 @@
 /**
  * @function useInterval
- * @description Custom React Hook
+ * @description 
+ *  - Custom React Hook to run a game function 
+ *    at an interval specified by delay parameter
  * @author Dan Abramov (external)
  * @date December 2024
  */

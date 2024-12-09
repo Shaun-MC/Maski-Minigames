@@ -1,3 +1,10 @@
+/**
+ * @component SnakeGame
+ * @description Houses game logic for Snake Game.
+ * @author Khushmeet Gobindpuri
+ * @date December 2024
+ */
+
 import React, { useState, useRef, useEffect } from "react";
 import { useInterval } from "./useInterval";
 import {
@@ -12,26 +19,25 @@ import {
 import GameOver from "../GameOver";
 import StartGameButton from "../StartGameButton";
 
-/**
- * @component SnakeGame
- * @description Houses game logic for Snake Game.
- * @author Khushmeet Gobindpuri
- * @date December 2024
- */
-
 const SnakeGame = () => {
   const canvasRef = useRef();
   const [snake, setSnake] = useState(SNAKE_START);
   const [apple, setApple] = useState(APPLE_START);
   const [score, setScore] = useState(0);
 
-  // Starting snake moving upward.
+  
+  /*
+   Starting the game with the snake moving upward.
+  */
   const [direction, setDirection] = useState(DIRECTIONS[38]);
 
   const [speed, setSpeed] = useState(null);
 
   const [gameOver, setGameOver] = useState(false);
 
+  /*
+    useEffect for listening for user keyboard input.
+  */
   useEffect(() => {
     window.addEventListener("keydown", moveSnake);
     return () => {
@@ -39,6 +45,9 @@ const SnakeGame = () => {
     };
   }, []);
 
+  /*
+    Resets Game Elements to an initial ("fresh") state
+  */
   const startGame = () => {
     setScore(0);
     setSnake(SNAKE_START);
@@ -48,12 +57,17 @@ const SnakeGame = () => {
     setGameOver(false);
   };
 
+  /*
+    Used to stop game when collision is detected.
+  */
   const endGame = () => {
     setSpeed(null);
     setGameOver(true);
   };
 
-  // could put moveSnake in own class.
+  /*
+    Moves snake in new direction. 
+  */
   const moveSnake = (event) => {
     const { keyCode } = event;
 
@@ -62,12 +76,15 @@ const SnakeGame = () => {
     }
 
     if (validateInput(keyCode)) {
-      console.log("Valid input");
       setDirection(DIRECTIONS[keyCode]);
     }
     return;
   };
 
+  /*
+    Validates user input to only allow
+    arrow keys and W,A,S,D.
+  */
   const validateInput = (keyCode) => {
     if (ALLOWED_KEYCODES.has(keyCode)) {
       return true;
@@ -75,6 +92,9 @@ const SnakeGame = () => {
     return false;
   };
 
+  /*
+    Creates an apple at random coordinates.
+  */
   const createApple = () => {
     // create apple with random coords
     return [0, 1].map((i) =>
@@ -82,9 +102,12 @@ const SnakeGame = () => {
     );
   };
 
+  /**
+   * Detects if the player snake has collided with a wall.
+   * @param {Object} piece - Player Snake's head
+   * @param {Object} currentSnake - Player Snake's whole body.
+   */
   const checkWallCollision = (piece, currentSnake = snake) => {
-    // check for wall collision
-
     return (
       piece[0] * SCALE >= CANVAS_SIZE[0] ||
       piece[0] < 0 ||
@@ -93,15 +116,21 @@ const SnakeGame = () => {
     );
   };
 
-  // Check if snake has collided with itself
+  /**
+   * Detects if the player snake has collided with itself.
+   * @param {Object} piece - Player Snake's head
+   * @param {Array} currentSnake - Player Snake's whole body.
+   */
   const checkSelfCollision = (piece, currentSnake = snake) => {
-    // check if head of the snake has
-    // collided with some part of its body
     return currentSnake.some(
       (segment) => piece[0] === segment[0] && piece[1] === segment[1]
     );
   };
 
+  /**
+   * Detects if the player snake has collided with an apple.
+   * @param {Object} newSnake - Player Snake's whole body.
+   */
   const checkAppleCollision = (newSnake = snake) => {
     if (newSnake[0][0] === apple[0] && newSnake[0][1] === apple[1]) {
       let newApple = createApple();
@@ -120,12 +149,13 @@ const SnakeGame = () => {
     return false;
   };
 
+  /*
+   * Function to control overall game state.
+   */
   const gameLoop = () => {
-    /* 
-    Making deep copy of existing snake
-    as mutating state directly is not 
-    good practice in React.
-    */
+    // Making deep copy of existing snake
+    // as mutating state directly is not
+    // good practice in React.
     const snakeCopy = snake.map((segment) => [...segment]);
 
     // getting x and y coordinate of snake head
@@ -145,7 +175,8 @@ const SnakeGame = () => {
     if (checkSelfCollision(newSnakeHead)) {
       endGame();
     }
-
+    
+    // check if player snake has collided with an apple
     if (!checkAppleCollision(snakeCopy)) {
       snakeCopy.pop();
     }
@@ -153,7 +184,10 @@ const SnakeGame = () => {
     setSnake(snakeCopy);
   };
 
-  // useEffect draws game objects on the screen
+  /*
+   * Redraws game canvas whenever snake, 
+    apple, or gameOver state changes. 
+  */
   useEffect(() => {
     // Have to get canvas context to draw on canvas
     const context = canvasRef.current.getContext("2d");
@@ -186,8 +220,16 @@ const SnakeGame = () => {
     context.fillRect(apple[0], apple[1], 1, 1);
   }, [snake, apple, gameOver]);
 
+  /**
+   * Reruns gameLoop function at an interval determined by speed parameter.
+   * @param {function} gameLoop - Function to control overall game state.
+   * @param {integer} speed - Constant to specify the rate at which gameLoop function is repeated.
+   */
   useInterval(() => gameLoop(), speed);
 
+  /**
+   * Styled Snake Game Page.
+   */
   return (
     <div>
       <div
@@ -206,7 +248,7 @@ const SnakeGame = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            padding:"2rem"
+            padding: "2rem",
           }}
         >
           <div
