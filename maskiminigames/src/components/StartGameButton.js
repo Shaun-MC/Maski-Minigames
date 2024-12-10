@@ -7,16 +7,10 @@ import styles from '../styles/Styles.module.css';
  * @author Khushmeet Gobindpuri
  * @date December 2024
  */
-const StartGameButton = ({ startGame, text}) => {
-  const delayStart = () => {
-    setTimeout(() => {
-      startGame();
-    }, 200); // 200ms delay so users can see button press animation
-  }
-  return (
+const StartGameButton = ({ startGame, text}) => {return (
     <button
       className={styles.button}
-      onClick={delayStart}
+      onClick={startGame}
     >
       {text}
     </button>

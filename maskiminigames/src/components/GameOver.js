@@ -16,12 +16,6 @@ const GameOver = ({ score, startGame }) => {
     setIsVisible(false);
   };
 
-  const handleBackToMenu = () => {
-    setTimeout(() => {
-      window.location.href = "/";
-    }, 200); // 200ms delay so users can see button press animation
-  }
-
   if (!isVisible) return null;
   return (
     <div className={styles.overlay}>
@@ -34,9 +28,10 @@ const GameOver = ({ score, startGame }) => {
             startGame={startGame}
             text={"RESTART"}
           />
-          <button className={styles.button} onClick={handleBackToMenu}
+          <button
+            className={styles.button}
           >
-            BACK TO MENU
+            <a href="/">BACK TO MENU</a>
           </button>
         </div>
       </div>
