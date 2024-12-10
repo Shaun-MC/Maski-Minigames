@@ -15,7 +15,7 @@ import HelpButton from "../HelpButton";
 import InstructionsText from "./InstructionsText";
 
 /**
- * @component SnakeGame
+ * @component SnakeGameManager
  * @description Houses game logic for Snake Game.
  * @author Khushmeet Gobindpuri
  * @date December 2024
