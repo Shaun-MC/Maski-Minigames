@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import StartGameButton from "./StartGameButton";
 import styles from '../styles/Styles.module.css';
 import "../styles/GameOver.css";
@@ -10,9 +10,17 @@ import "../styles/GameOver.css";
  * @date December 2024
  */
 const GameOver = ({ score, startGame }) => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
   return (
     <div className={styles.overlay}>
       <div className="game-over">
+        <button className="close-button" onClick={handleClose}>×</button>
         <h1>GAME OVER!!!</h1>
         <h2>{"FINAL SCORE: " + score}</h2>
         <div className="buttons">
