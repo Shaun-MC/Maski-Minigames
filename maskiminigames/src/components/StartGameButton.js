@@ -8,10 +8,15 @@ import styles from '../styles/Styles.module.css';
  * @date December 2024
  */
 const StartGameButton = ({ startGame, text}) => {
+  const delayStart = () => {
+    setTimeout(() => {
+      startGame();
+    }, 200); // 200ms delay so users can see button press animation
+  }
   return (
     <button
       className={styles.button}
-      onClick={startGame}
+      onClick={delayStart}
     >
       {text}
     </button>
