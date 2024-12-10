@@ -107,3 +107,8 @@
   font-weight: bold;
   z-index: 10;
 }
+
+.button:active {
+  box-shadow: inset 0px 2px 6px #70325C,
+              inset 0px -2px 6px #70325C
+}
