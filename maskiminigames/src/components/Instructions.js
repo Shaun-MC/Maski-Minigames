@@ -16,7 +16,7 @@ const Instructions = ({ content, onClose }) => (
     <div className="instructions-box">
       <button className="close-button" onClick={onClose}>×</button>
       
-      <header className="header">INSTRUCTIONS</header>
+      <header>INSTRUCTIONS</header>
       
       <div className="content">
         {content}
