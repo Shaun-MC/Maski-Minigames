@@ -62,22 +62,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid #b0fffb; /* Frame border */
-  border-radius: 10px; /* Optional rounded corners */
-  padding: 10px; /* Adds spacing between the frame and the Renderer */
-  background-color: #20FFF2; /* Background color for the frame */
-  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
-  position: relative; /* Keeps the frame positioned tightly around Renderer */
+  border: 5px solid #b0fffb;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #20FFF2;
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
   margin: 30px;
 }
 
 .frame::before {
   content: "";
   position: absolute;
-  top: 10px; /* Adjust this to control spacing inside the padding */
+  top: 10px;
   left: 10px;
   right: 10px;
   bottom: 10px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 1); /* Optional shadow for depth */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 1);
   pointer-events: none;
 }
