@@ -6,7 +6,7 @@ import "../styles/GameOver.css";
 /**
  * @component GameOver
  * @description Game Over Popup UI Component
- * @author Khushmeet Gobindpuri
+ * @author Khushmeet Gobindpuri, Ayleen Piteo-Tarpy
  * @date December 2024
  */
 const GameOver = ({ score, startGame }) => {
@@ -20,8 +20,8 @@ const GameOver = ({ score, startGame }) => {
             startGame={startGame}
             text={"RESTART"}
           />
-          <button className="menu-button">
-            <a href="/">GO BACK TO MENU</a>
+          <button className={styles.button}>
+            <a href="/">BACK TO MENU</a>
           </button>
         </div>
       </div>

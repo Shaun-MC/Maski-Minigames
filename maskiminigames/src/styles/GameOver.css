@@ -1,17 +1,24 @@
 h1 {
-  color: red;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #1bd0d3;
+  text-shadow: 1px 1px 1px #D0FCFD, -1px -1px 2px #025c5e;
 }
 
 h2 {
-
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #EC65C1;
+  text-shadow: -1px -1px 2px #FFFFFF, 1px 1px 1px #70325C;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: white;
 }
 
 .game-over {
+  background: #20FBFF;
   font-family: monospace;
   font-size: 30px;
   font-weight: bold;
@@ -19,7 +26,6 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -38,7 +44,10 @@ a {
 .menu-button {
   all: unset;
   margin-top: 20px;
-  padding: 6px;
+  padding: 10px;
   border-radius: 10px;
-  background: orange;
+  background: #EC65C1;
+  box-shadow: 0px 2px 2px #70325C;
+  cursor: pointer;
+  color: white;
 }
