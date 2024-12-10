@@ -85,15 +85,8 @@ class EndlessRacingGameManager extends Component {
 
   increaseScore = () => {
     const playerSpeed = this.playerRef.current.state.verticalSpeed;
-
-    // Use deltaTime to calculate smooth score progression
-    const deltaTime = 0.3; // the interval in seconds (300ms)
-
-    // Calculate the score increment based on speed and deltaTime
-    const scoreIncrement = playerSpeed * deltaTime;
-
     this.setState((prevState) => ({
-      score: prevState.score + scoreIncrement,
+      score: prevState.score += playerSpeed * 0.2,
     }));
   };
 
