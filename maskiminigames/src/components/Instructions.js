@@ -15,9 +15,7 @@ const Instructions = ({ content, onClose }) => (
   <div className={styles.overlay}>
     <div className="instructions-box">
       <button className="close-button" onClick={onClose}>×</button>
-      
       <header>INSTRUCTIONS</header>
-      
       <div className="content">
         {content}
       </div>
@@ -29,6 +27,5 @@ Instructions.propTypes = {
   content: PropTypes.element.isRequired,
   onClose: PropTypes.func.isRequired,
 };
-
 
 export default Instructions;
