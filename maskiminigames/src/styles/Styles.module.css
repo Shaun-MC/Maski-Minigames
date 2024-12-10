@@ -94,3 +94,15 @@
   align-items: center;
   z-index: 1000;
 }
+
+.button {
+  all: unset;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #EC65C1;
+  box-shadow: 0px 2px 2px #70325C;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
