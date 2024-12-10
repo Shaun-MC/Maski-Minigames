@@ -2,7 +2,6 @@ import React from 'react';
 
 const InstructionsText = (
   <div>
-    <header>Instructions</header>
     <p>Play as the blue snake.</p>
     <p>Press 'W' or the up arrow key to move the snake up.</p>
     <p>Press 'D' or the down arrow key to move the snake down.</p>
