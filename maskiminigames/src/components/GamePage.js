@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "./Button";
-import styles from "../styles/PageStyles.module.css";
+import styles from "../styles/Styles.module.css";
 
 /**
  * @component GamePage

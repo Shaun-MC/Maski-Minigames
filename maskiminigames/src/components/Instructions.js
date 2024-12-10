@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/PageStyles.module.css';
+import styles from '../styles/Styles.module.css';
 import '../styles/Instructions.css';
 
 /**
