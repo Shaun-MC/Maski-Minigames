@@ -19,12 +19,12 @@ const Homepage = () => {
       <img src={logo} className={styles.logo} alt="logo" />
       <div className={styles.buttons}>
         <Button
-          link="/snake-game"
+          link="/snake"
           imageSrc={snakeButtonImage}
           altText="Play Snake"
         />
         <Button
-          link="/endless-racer"
+          link="/endless-racing"
           imageSrc={endlessRacingButtonImage}
           altText="Play Endless Racing"
         />

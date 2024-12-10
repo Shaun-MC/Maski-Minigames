@@ -17,9 +17,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/snake-game" element={<SnakeGamePage />} />
-        <Route path="/snake-game/play" element={<SnakeGame />} />
-        <Route path="/endless-racer" element={<EndlessRacingGamePage />} />
+        <Route path="/snake" element={<SnakeGamePage />} />
+        <Route path="/endless-racing" element={<EndlessRacingGamePage />} />
       </Routes>
     </div>
   );
