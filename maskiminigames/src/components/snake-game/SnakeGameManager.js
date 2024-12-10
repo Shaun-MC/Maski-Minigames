@@ -1,10 +1,3 @@
-/**
- * @component SnakeGame
- * @description Houses game logic for Snake Game.
- * @author Khushmeet Gobindpuri
- * @date December 2024
- */
-
 import React, { useState, useRef, useEffect } from "react";
 import { useInterval } from "./useInterval";
 import {
@@ -18,8 +11,16 @@ import {
 } from "./constants";
 import GameOver from "../GameOver";
 import StartGameButton from "../StartGameButton";
+import HelpButton from "../HelpButton";
+import InstructionsText from "./InstructionsText";
 
-const SnakeGame = () => {
+/**
+ * @component SnakeGameManager
+ * @description Houses game logic for Snake Game.
+ * @author Khushmeet Gobindpuri
+ * @date December 2024
+ */
+const SnakeGameManager = () => {
   const canvasRef = useRef();
   const [snake, setSnake] = useState(SNAKE_START);
   const [apple, setApple] = useState(APPLE_START);
@@ -269,10 +270,11 @@ const SnakeGame = () => {
 
           {gameOver && <GameOver score={score} startGame={startGame} />}
           <StartGameButton startGame={startGame} text={"START GAME"} />
+          <HelpButton instructions={InstructionsText} />
         </div>
       </div>
     </div>
   );
 };
 
-export default SnakeGame;
+export default SnakeGameManager;

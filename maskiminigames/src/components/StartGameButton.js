@@ -1,4 +1,5 @@
 import React from "react";
+import styles from '../styles/Styles.module.css';
 
 /**
  * @component StartGameButton
@@ -6,18 +7,9 @@ import React from "react";
  * @author Khushmeet Gobindpuri
  * @date December 2024
  */
-const StartGameButton = ({ startGame, text}) => {
-  return (
+const StartGameButton = ({ startGame, text}) => {return (
     <button
-      style={{
-        all: "unset",
-        marginTop: "20px",
-        padding: "10px",
-        borderRadius: "10px",
-        background: "green",
-        cursor: "pointer",
-        color:"white",
-      }}
+      className={styles.button}
       onClick={startGame}
     >
       {text}

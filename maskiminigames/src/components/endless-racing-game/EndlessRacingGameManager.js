@@ -3,6 +3,8 @@ import PlayerCar from './PlayerCar';
 import RacerCar from './RacerCar';
 import CollisionManager from './CollisionManager';
 import StartGameButton from "../StartGameButton";
+import HelpButton from "../HelpButton";
+import InstructionsText from './InstructionsText';
 import GameOver from "../GameOver";
 import { MAP_WIDTH, MAP_HEIGHT } from './Constants'
 
@@ -23,13 +25,13 @@ const containerStyle = {
 const ACCELERATION_INTERVAL = 300;
 
 /**
-* @class GameManager
+* @class EndlessRacingGameManager
 * @description Handles all of the game systems for EndlessRacingGame.
 *
 * @author Minh Pham
 * @date December 2024
 */
-class GameManager extends Component {
+class EndlessRacingGameManager extends Component {
     constructor(props) {
         super(props);
         this.playerRef = React.createRef();
@@ -167,7 +169,10 @@ class GameManager extends Component {
 
         // Check for collisions
         if (CollisionManager.detectPlayerCollisions(this.playerRef, this.racerRefs)) {
-            this.setState({ gameOver: true });
+            this.setState({
+              gameOver: true,
+              gameRunning: false
+            });
             cancelAnimationFrame(this.animationFrameId);
             clearInterval(this.interval);
             return;
@@ -187,6 +192,7 @@ class GameManager extends Component {
             <div style={containerStyle}>
                 {this.state.gameOver && <GameOver score={this.state.score} startGame={this.startGame} />}
                 {!this.state.gameRunning && <StartGameButton startGame={this.startGame} text={"START GAME"} /> }
+                {<HelpButton instructions={InstructionsText} />}
                 <PlayerCar ref={this.playerRef} />
                 {[...Array(5)].map((_, index) => (
                     <RacerCar
@@ -199,4 +205,4 @@ class GameManager extends Component {
     }
 }
 
-export default GameManager;
+export default EndlessRacingGameManager;

@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import snakeButtonImage from '../assets/snake_button.png';
 import endlessRacingButtonImage from '../assets/endless_racing_button.png';
 import Button from './Button';
-import styles from '../styles/PageStyles.module.css';
+import styles from '../styles/Styles.module.css';
 
 /**
  * @component Homepage
@@ -19,12 +19,12 @@ const Homepage = () => {
       <img src={logo} className={styles.logo} alt="logo" />
       <div className={styles.buttons}>
         <Button
-          link="/snake-game"
+          link="/snake"
           imageSrc={snakeButtonImage}
           altText="Play Snake"
         />
         <Button
-          link="/endless-racer"
+          link="/endless-racing"
           imageSrc={endlessRacingButtonImage}
           altText="Play Endless Racing"
         />
