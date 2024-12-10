@@ -169,7 +169,10 @@ class EndlessRacingGameManager extends Component {
 
         // Check for collisions
         if (CollisionManager.detectPlayerCollisions(this.playerRef, this.racerRefs)) {
-            this.setState({ gameOver: true });
+            this.setState({
+              gameOver: true,
+              gameRunning: false
+            });
             cancelAnimationFrame(this.animationFrameId);
             clearInterval(this.interval);
             return;
