@@ -26,14 +26,14 @@ header {
 .close-button {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 15px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
   color: #09002E;
 }
 
 .close-button:hover {
-  color: #20FFF2;
+  color: #FFFFFF;
 }
