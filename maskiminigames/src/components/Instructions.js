@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/PageStyles.module.css';
 import '../styles/Instructions.css';
 
 /**
@@ -11,7 +12,7 @@ import '../styles/Instructions.css';
  */
 
 const Instructions = ({ content, onClose }) => (
-  <div className="instructions-overlay">
+  <div className={styles.overlay}>
     <div className="instructions-box">
       <button className="close-button" onClick={onClose}>×</button>
       
