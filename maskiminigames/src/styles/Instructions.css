@@ -1,0 +1,39 @@
+.instructions-box {
+  background: #EC65C1;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  position: absolute;
+}
+
+header {
+  font-size: 30px;
+  font-weight: bold;
+  color: #BF549D;
+  text-shadow: 0.5px 0.5px 1px pink, -1px -1px 2px #3b0b2c;
+}
+
+.content {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.5;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px #3b0b2c;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #09002E;
+}
+
+.close-button:hover {
+  color: #FFFFFF;
+}
