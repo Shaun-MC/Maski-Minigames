@@ -28,7 +28,7 @@ const ACCELERATION_INTERVAL = 300;
  * @class EndlessRacingGameManager
  * @description Handles all of the game systems for EndlessRacingGame.
  *
- * @author Minh Pham
+ * @author Minh Pham, Ishaan Kapil
  * @date December 2024
  */
 class EndlessRacingGameManager extends Component {

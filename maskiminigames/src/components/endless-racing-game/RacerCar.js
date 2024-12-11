@@ -32,7 +32,7 @@ const MAX_SPEED = 50;
  * @description A racer car that travels along the road alongside the player.
  * If the racer crashes into the player, the game ends.
  *
- * @author Minh Pham
+ * @author Minh Pham, Ishaan Kapil
  * @date December 2024
  */
 class RacerCar extends Component {

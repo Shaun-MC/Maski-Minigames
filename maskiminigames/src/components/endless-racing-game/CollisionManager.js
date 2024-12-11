@@ -7,7 +7,7 @@ const buffer = 5; // buffer zone for collision detection
 * @description Manages collision detection for the Endless Racer game.
 * Works specifically with the Racer and PlayerCar classes.
 *
-* @author Ishaan Kapil
+* @author Ishaan Kapil, Minh Pham
 * @date December 2024
 */
 class CollisionManager {
