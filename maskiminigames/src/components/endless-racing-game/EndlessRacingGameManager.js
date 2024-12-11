@@ -22,6 +22,16 @@ const containerStyle = {
   boxSizing: "border-box",
 };
 
+const scoreStyle = {
+  position: "absolute",
+  top: "5px",
+  fontFamily: "monospace",
+  fontSize: "30px",
+  textAlign: "center",
+  color: "#1bd0d3",
+  zIndex: 1000,
+};
+
 const ACCELERATION_INTERVAL = 300;
 
 /**
@@ -191,17 +201,7 @@ class EndlessRacingGameManager extends Component {
   render() {
     return (
       <div style={containerStyle}>
-        <div
-          style={{
-            position: "absolute",
-            top: "5px",
-            fontFamily: "monospace",
-            fontSize: "30px",
-            textAlign: "center",
-            color: "#1bd0d3",
-            zIndex: 1000,
-          }}
-        >
+        <div style={scoreStyle}>
           {"Cars Passed: " + Math.floor(this.state.score)}
         </div>
         {this.state.gameOver && (
