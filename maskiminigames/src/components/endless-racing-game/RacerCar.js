@@ -20,7 +20,7 @@ const INITIAL_MAX_VERT_SPEED = -6;
 const INITIAL_MIN_HORZ_SPEED = -1.1;
 const INITIAL_MAX_HORZ_SPEED = 1.1;
 const INITIAL_MIN_OFFSET = 50;
-const INITIAL_MAX_OFFSET = MAP_HEIGHT;
+const INITIAL_MAX_OFFSET = MAP_HEIGHT / 2;
 const VERTICAL_SPEED_VARIANCE = 0.5;
 const HORIZONTAL_SPEED_VARIANCE = 0.05;
 const LOSS_IN_VELOCITY_UPON_COLLISION = 0.9;
@@ -138,23 +138,28 @@ class RacerCar extends Component {
             x: this.state.x - this.state.horizontalSpeed,
             y: this.state.y - this.state.verticalSpeed,
         });
-
+      
         // Check if track was crossed
         if (this.state.y < -MAP_HEIGHT) {
-            this.setState({
-                x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
-                y: MAP_HEIGHT,
-            });
-            this.randomizeCarState();
-        }
+          this.setState({
+            x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
+            y: MAP_HEIGHT,
+          });
+          this.randomizeCarState();
+        } 
         else if (this.state.y > MAP_HEIGHT) {
-            this.setState({
-                x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
-                y: -MAP_HEIGHT + IMAGE_HEIGHT,
-            });
-            this.randomizeCarState();
+          this.setState({
+            x: this.randomNumberInRange(this.trackEdges.leftEdge, this.trackEdges.rightEdge),
+            y: -MAP_HEIGHT + IMAGE_HEIGHT,
+          });
+          this.randomizeCarState();
+      
+          // Increments score upon pass
+          if (this.props.onCarPassed) {
+            this.props.onCarPassed();
+          }
         }
-    }
+      };
 
     // Render out the racer
     render() {

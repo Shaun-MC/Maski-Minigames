@@ -83,10 +83,9 @@ class EndlessRacingGameManager extends Component {
     });
   };
 
-  increaseScore = () => {
-    const playerSpeed = this.playerRef.current.state.verticalSpeed;
+  handleCarPassed = () => {
     this.setState((prevState) => ({
-      score: prevState.score += playerSpeed * 0.2,
+      score: prevState.score + 1,
     }));
   };
 
@@ -103,7 +102,6 @@ class EndlessRacingGameManager extends Component {
 
     // Accelerate player car
     this.playerRef.current.accelerate();
-    this.increaseScore();
   };
 
   decelerateGame = () => {
@@ -183,7 +181,6 @@ class EndlessRacingGameManager extends Component {
     this.racerRefs.forEach((racerRef) =>
       racerRef.current.collisionCheck(this.racerRefs)
     );
-
     // Request next frame only if game isn't over
     if (!this.state.gameOver) {
       this.animationFrameId = requestAnimationFrame(this.update);
@@ -205,7 +202,7 @@ class EndlessRacingGameManager extends Component {
             zIndex: 1000,
           }}
         >
-          {Math.floor(this.state.score)}
+          {"Cars Passed: " + Math.floor(this.state.score)}
         </div>
         {this.state.gameOver && (
           <GameOver
@@ -219,7 +216,11 @@ class EndlessRacingGameManager extends Component {
         {<HelpButton instructions={InstructionsText} />}
         <PlayerCar ref={this.playerRef} />
         {[...Array(5)].map((_, index) => (
-          <RacerCar key={index} ref={this.createRacerRef(index)} />
+          <RacerCar
+            key={index}
+            ref={this.createRacerRef(index)}
+            onCarPassed={this.handleCarPassed}
+          />
         ))}
       </div>
     );
